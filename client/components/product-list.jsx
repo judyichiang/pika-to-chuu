@@ -18,24 +18,30 @@ export default class ProductList extends React.Component {
   getProducts() {
     fetch('/api/products')
       .then(res => res.json())
-      .then(data => {
+      .then(products => {
         this.setState({
-          products: data
+          products
         });
-
       })
       .catch(err => console.error(err));
   }
 
   render() {
+    const data = this.state.products.map((product, index) =>
+      <ProductionListItem
+        key = {index}
+        name = {product.name}
+        price = {product.price}
+        image = {product.image}
+        shortDescription={product.shortDescription}
+      />
+    );
 
     return (
       <div className="container">
-        <div className="row p-4">
-          <ProductionListItem products={this.state.products} />
-        </div>
+        <div className="row p-4">{data}</div>
       </div>
-
     );
   }
+
 }
