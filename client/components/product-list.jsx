@@ -12,6 +12,7 @@ export default class ProductList extends React.Component {
 
   componentDidMount() {
     this.getProducts();
+
   }
 
   getProducts() {
@@ -21,25 +22,16 @@ export default class ProductList extends React.Component {
         this.setState({
           products: data
         });
-      })
 
+      })
       .catch(err => console.error(err));
   }
 
   render() {
+
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <ProductionListItem />
-          </div>
-          <div className="col">
-            <ProductionListItem />
-          </div>
-          <div className="col">
-            <ProductionListItem />
-          </div>
-        </div>
+      <div>
+        <ProductionListItem products={this.state.products}/>
       </div>
     );
   }
