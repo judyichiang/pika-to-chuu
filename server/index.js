@@ -53,10 +53,7 @@ app.get('/api/products/:productId', (req, res, next) => {
         res.json(product);
       }
     })
-    .catch(err => {
-      console.error(err);
-      next(new ClientError(500));
-    });
+    .catch(err => next(err));
 
 });
 
