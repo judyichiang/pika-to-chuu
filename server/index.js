@@ -55,7 +55,7 @@ app.get('/api/products/:productId', (req, res, next) => {
     })
     .catch(err => {
       console.error(err);
-      res.status(500).json({ error: 'An unexpected error has occured' });
+      next(new ClientError(500));
     });
 
 });
