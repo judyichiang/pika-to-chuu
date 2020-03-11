@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductionListItem from './product-list-item';
 
 export default class ProductList extends React.Component {
   constructor(props) {
@@ -26,6 +27,20 @@ export default class ProductList extends React.Component {
   }
 
   render() {
-    return null;
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <ProductionListItem />
+          </div>
+          <div className="col">
+            <ProductionListItem />
+          </div>
+          <div className="col">
+            <ProductionListItem />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
