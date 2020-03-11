@@ -6,13 +6,14 @@ export default class ProductList extends React.Component {
     this.state = {
       products: []
     };
+    this.getProducts = this.getProducts.bind(this);
   }
 
   componentDidMount() {
     this.getProducts();
   }
 
-  getProducts = () => {
+  getProducts() {
     fetch('/api/products')
       .then(res => res.json())
       .then(data => {
