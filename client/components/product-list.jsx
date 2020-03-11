@@ -30,9 +30,12 @@ export default class ProductList extends React.Component {
   render() {
 
     return (
-      <div>
-        <ProductionListItem products={this.state.products}/>
+      <div className="container">
+        <div className="row p-4">
+          <ProductionListItem products={this.state.products} />
+        </div>
       </div>
+
     );
   }
 }
