@@ -1,5 +1,7 @@
-// import React from 'react';
+import React from 'react';
 
-export default function ProductionListItem(props) {
-
+export default class ProductionListItem extends React.Component {
+  render() {
+    return null;
+  }
 }
