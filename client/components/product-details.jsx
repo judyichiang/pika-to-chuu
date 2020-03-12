@@ -27,21 +27,23 @@ export default class ProductDetails extends React.Component {
   render() {
     return (
       <div className="container">
-        <div>&lt; Back to Catalog</div>
-        <div className="row">
+        <div onClick={() => this.props.setView('catalog', {})}>&lt; Back to Catalog</div>
+
+        {/* <div className="row">
           <div className="col-4">
-            <img src={this.state.product.image} alt={this.state.product.name} />
+            <img src={this.product.image} alt={this.product.name} />
           </div>
           <div className="col-8">
-            <h3>{this.state.product.name}</h3>
-            <p>${(this.state.produce.price / Math.pow(10, 2)).toFixed(2)}</p>
-            <p>{this.state.product.shortDescription}</p>
+            <h3>{this.product.name}</h3>
+            <p>${(this.product.price / Math.pow(10, 2)).toFixed(2)}</p>
+            <p>{this.product.shortDescription}</p>
           </div>
         </div>
         <div className="row"></div>
         <div className="col">
-          {this.state.product.longDescription}
-        </div>
+          {this.product.longDescription}
+        </div> */}
+
       </div>
 
     );
