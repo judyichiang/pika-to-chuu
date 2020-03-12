@@ -32,11 +32,19 @@ export default class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Header name="$Wicked Sales" />
-        <ProductList />
-      </div>
-    );
+    if (this.state.view.name === 'catalog') {
+      return (
+        <div>
+          <Header name="$Wicked Sales" />
+          <ProductList />
+        </div>
+      );
+    }
+
+    if (this.state.view.name === 'details') {
+      return null;
+
+    }
+
   }
 }
