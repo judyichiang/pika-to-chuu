@@ -33,7 +33,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header name="$Wicked Sales" />
-          <ProductList />
+          <ProductList setView={this.setView} />
         </div>
       );
     }

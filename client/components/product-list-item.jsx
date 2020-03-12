@@ -1,15 +1,16 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 export default class ProductionListItem extends React.Component {
+
   render() {
 
     return (
 
       <div className="col-4 mb-4">
         <div className="card"
-          // onClick={() => this.props.setView('details', { productId: this.props.productId })}
-          // eslint-disable-next-line no-console
-          onClick={() => (console.log('yo'))}
+          onClick={() => this.props.setView('details',
+            { productId: this.props.productId })}
         >
           <img src={this.props.image} alt={this.props.name} className="card-img-top" />
           <div className="card-body">
