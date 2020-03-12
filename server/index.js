@@ -34,7 +34,7 @@ app.get('/api/products', (req, res, next) => {
 });
 
 app.get('/api/products/:productId', (req, res, next) => {
-  const { productId } = req.params;
+  const { productId } = req.body;
   if (!parseInt(productId, 10)) {
     return res.status(400).json({ error: 'productId must be a positive integer' });
   }
@@ -66,14 +66,38 @@ app.get('/api/cart', (req, res, next) => {
   next();
 });
 
-app.post('/api/cart', (req, res) => {
+app.post('/api/cart', (req, res, next) => {
   const { productId } = req.params;
   if (!parseInt(productId, 10)) {
     return res.status(400).json({ error: 'productId must be a positive integer' });
   }
-})
+  const sql = `
+    select "price"
+      from "carts"
+      join "cartItems"
+    where "productId" =$1
+  `;
+  const params = [productId];
+  db.query(sql, params)
+    .then(result => {
+      const product = result.rows[0];
+      if (!product) {
+        res.status(404).json({ error: 'new ClientError' });
+      }
+      const sql = `
+        insert into "carts" ("cartId", "createdAt")
+                values (default, default)
+        returning "cartId"
+        `;
+      return db.query(sql).then(cartId => ({
+        cartId: product.cardId,
+        price: product.price
+      }));
 
-; app.use('/api', (req, res, next) => {
+    });
+});
+
+app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
 });
 
