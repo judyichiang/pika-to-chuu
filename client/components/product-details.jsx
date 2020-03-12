@@ -20,32 +20,34 @@ export default class ProductDetails extends React.Component {
         });
         console.log(data);
       })
-
       .catch(err => console.error(err));
   }
 
   render() {
-    return (
-      <div className="container p-3">
-        <div onClick={() => this.props.setView('catalog', {})}>
-          &lt; Back to Catalog
-        </div>
-        <div className="row p-3">
-          <div className="col-4">
-            <img src={this.props.image} alt={this.props.name} />
+    if (this.state.product) {
+      return (
+        <div className="container p-3">
+          <div onClick={() => this.props.setView('catalog', {})}>
+            &lt; Back to Catalog
           </div>
-          <div className="col-8">
-            <h3>{this.props.name}</h3>
-            <p>${(this.props.price / Math.pow(10, 2)).toFixed(2)}</p>
-            <p>{this.props.shortDescription}</p>
+          <div className="row p-3">
+            <div className="col-4">
+              <img src={this.state.product.image} alt={this.state.product.name} />
+            </div>
+            <div className="col-8">
+              <h3>{this.state.product.name}</h3>
+              <p>${(this.state.product.price / Math.pow(10, 2)).toFixed(2)}</p>
+              <p>{this.state.product.shortDescription}</p>
+            </div>
+          </div>
+          <div className="row"></div>
+          <div className="col">
+            {this.state.product.longDescription}
           </div>
         </div>
-        <div className="row"></div>
-        <div className="col">
-          {this.props.longDescription}
-        </div>
-      </div>
-
-    );
+      );
+    } else {
+      return null;
+    }
   }
 }
