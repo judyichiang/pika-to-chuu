@@ -21,7 +21,15 @@ export default class App extends React.Component {
       .finally(() => this.setState({ isLoading: false }));
   }
 
-  setView(name, params) {}
+  setView(name, params) {
+    this.setState({
+      view: {
+        name: name,
+        params: params
+      }
+    });
+
+  }
 
   render() {
     return (
