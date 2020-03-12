@@ -35,7 +35,7 @@ export default class App extends React.Component {
           <Header name="$Wicked Sales" />
           <ProductList
             setView={this.setView}
-            product={this.state.view.params} />
+          />
         </div>
       );
     }
