@@ -26,7 +26,6 @@ export default class App extends React.Component {
     this.setState({
       view: { name, params }
     });
-
   }
 
   render() {
@@ -34,14 +33,21 @@ export default class App extends React.Component {
       return (
         <div>
           <Header name="$Wicked Sales" />
-          <ProductList setView={this.setView} />
+          <ProductList
+            setView={this.setView}
+            product={this.state.view.params} />
         </div>
       );
     }
 
     if (this.state.view.name === 'details') {
       return (
-        <ProductDetails setView={this.setView} product={this.state.view.params}/>
+        <div>
+          <Header name="$Wicked Sales" />
+          <ProductDetails
+            setView={this.setView}
+            product={this.state.view.params} />
+        </div>
       );
     }
 
