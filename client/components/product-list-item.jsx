@@ -7,7 +7,10 @@ export default class ProductionListItem extends React.Component {
 
       <div className="col-4 mb-4">
         <div className="card"
-          onClick={() => this.props.setView('details', { productId: this.props.product.productId })}>
+          // onClick={() => this.props.setView('details', { productId: this.props.productId })}
+          // eslint-disable-next-line no-console
+          onClick={() => (console.log('yo'))}
+        >
           <img src={this.props.image} alt={this.props.name} className="card-img-top" />
           <div className="card-body">
             <h5 className="card-title">{this.props.name}</h5>

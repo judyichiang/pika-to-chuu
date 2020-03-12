@@ -23,10 +23,7 @@ export default class App extends React.Component {
 
   setView(name, params) {
     this.setState({
-      view: {
-        name: name,
-        params: params
-      }
+      view: { name, params }
     });
 
   }
@@ -43,7 +40,6 @@ export default class App extends React.Component {
 
     if (this.state.view.name === 'details') {
       return null;
-
     }
 
   }

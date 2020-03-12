@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 export default class ProductDetails extends React.Component {
@@ -17,6 +18,7 @@ export default class ProductDetails extends React.Component {
         this.setState({
           product: data
         });
+        console.log(data);
       })
 
       .catch(err => console.error(err));
@@ -25,12 +27,21 @@ export default class ProductDetails extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className ="row">
-          <div className="col-4"></div>
-          <div className="col-8"></div>
+        <div>&lt; Back to Catalog</div>
+        <div className="row">
+          <div className="col-4">
+            <img src={this.state.product.image} alt={this.state.product.name} />
+          </div>
+          <div className="col-8">
+            <h3>{this.state.product.name}</h3>
+            <p>${(this.state.produce.price / Math.pow(10, 2)).toFixed(2)}</p>
+            <p>{this.state.product.shortDescription}</p>
+          </div>
         </div>
         <div className="row"></div>
-        <div className="col"></div>
+        <div className="col">
+          {this.state.product.longDescription}
+        </div>
       </div>
 
     );
