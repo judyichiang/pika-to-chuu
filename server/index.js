@@ -64,8 +64,14 @@ app.get('/api/cart', (req, res, next) => {
   }
   res.json(array);
   next();
-}
-)
+});
+
+app.post('/api/cart', (req, res) => {
+  const { productId } = req.params;
+  if (!parseInt(productId, 10)) {
+    return res.status(400).json({ error: 'productId must be a positive integer' });
+  }
+})
 
 ; app.use('/api', (req, res, next) => {
   next(new ClientError(`cannot ${req.method} ${req.originalUrl}`, 404));
