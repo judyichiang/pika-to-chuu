@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 require('dotenv/config');
 const express = require('express');
 
@@ -81,18 +82,29 @@ app.post('/api/cart', (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       const product = result.rows[0];
+      console.log('hello');
       if (!product) {
-        res.status(404).json({ error: 'new ClientError' });
+        return res.status(404).json({ error: 'new ClientError' });
       }
       const sql = `
-        insert into "carts" ("cartId", "createdAt")
-                values (default, default)
-        returning "cartId"
-        `;
+      insert into "carts" ("cartId", "createdAt")
+      values (default, default)
+      returning "cartId"
+      `;
       return db.query(sql).then(cartId => ({
-        cartId: product.cardId,
+        cartId: product.cartId,
         price: product.price
       }));
+    }
+    )
+    .then(data => {
+      req.session.cartId = data.cartId;
+      const sql = `
+      inser into "cartItems" ("cartId", "productId", "price")
+      values($1, $2, $3)
+      returning "cartItemId"
+      `;
+      db.query(sql);
 
     });
 });
