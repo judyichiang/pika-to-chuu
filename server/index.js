@@ -114,13 +114,27 @@ app.post('/api/cart', (req, res, next) => {
       returning "cartItemId"
       `;
       const val = [result3.cartId, productId, price];
-      console.log(val);
+
       return db.query(sql, val)
         .then(
-          cartItemId => cartItemId.row[0]
+          cartItemId => cartItemId.rows[0]
         );
-
+    })
+    .then(cartItemId => {
+      const sql = `
+      select "c"."cartItemId",
+        "c"."price",
+        "p"."productId",
+        "p"."image",
+        "p"."name",
+        "p"."shortDescription"
+      from "cartItems" as "c"
+      join "products" as "p" using ("productId")
+      where "c"."cartItemId" = $1
+      `;
+      db.query(sql);
     });
+
 });
 
 app.use('/api', (req, res, next) => {
