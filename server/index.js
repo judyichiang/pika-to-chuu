@@ -132,7 +132,12 @@ app.post('/api/cart', (req, res, next) => {
       join "products" as "p" using ("productId")
       where "c"."cartItemId" = $1
       `;
-      db.query(sql);
+      const val = [cartItemId.cartItemId];
+      db.query(sql, val)
+
+        .then(data =>
+          res.status(201).json(data.rows)
+        );
     });
 
 });
