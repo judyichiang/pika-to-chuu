@@ -95,9 +95,16 @@ app.post('/api/cart', (req, res, next) => {
   const params = [productId];
   db.query(sql, params)
     .then(result => {
+      console.log('result:', result);
       const product = result.rows[0];
       if (!product) {
         throw new ClientError('cannot find data', 400);
+      }
+      if ('cartId' in req.session) {
+        return {
+          cartId: req.session.cartId,
+          price: result.rows[0].price
+        };
       }
       const sql = `
       insert into "carts" ("cartId", "createdAt")
@@ -113,7 +120,7 @@ app.post('/api/cart', (req, res, next) => {
           return price;
         });
     })
-
+  // --------------------------------------------
     .then(result3 => {
       console.log(result3);
       req.session.cartId = result3.cartId;
