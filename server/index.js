@@ -34,8 +34,8 @@ app.get('/api/products', (req, res, next) => {
 });
 
 app.get('/api/products/:productId', (req, res, next) => {
-  const { productId } = req.body;
-  if (!parseInt(productId, 10)) {
+  const { productId } = req.params;
+  if (!parseInt(productId, 10) || productId <= 0) {
     return res.status(400).json({ error: 'productId must be a positive integer' });
   }
   const sql = `
