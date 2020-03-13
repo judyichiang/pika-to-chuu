@@ -46,7 +46,9 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <div>
-          <Header name="$Wicked Sales" />
+          <Header name="$Wicked Sales"
+
+          />
           <ProductList
             setView={this.setView}
           />
