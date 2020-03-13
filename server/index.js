@@ -59,12 +59,16 @@ app.get('/api/products/:productId', (req, res, next) => {
 });
 
 app.get('/api/cart', (req, res, next) => {
-  const array = [];
-  for (const key in db.cart) {
-    array.push(db.cart[key]);
-  }
-  res.json(array);
-  next();
+  const sql = `
+  select "cartId"
+  from "carts"
+  `;
+  db.query(sql)
+    .then(result => {
+      const products = result.rows;
+      res.json(products);
+    })
+    .catch(err => next(err));
 });
 
 app.post('/api/cart', (req, res, next) => {
