@@ -48,7 +48,14 @@ export default class App extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(product)
-    });
+    })
+      .then(res => res.json())
+      .then(product => {
+        this.setState({
+          cart: this.state.cart.concat(product)
+        });
+      })
+      .catch(err => console.error(err));
   // --------------
   }
 
