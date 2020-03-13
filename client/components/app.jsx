@@ -64,7 +64,7 @@ export default class App extends React.Component {
       return (
         <div>
           <Header name="$Wicked Sales"
-
+            cartItemCount={this.state.cart.length}
           />
           <ProductList
             setView={this.setView}
@@ -76,10 +76,12 @@ export default class App extends React.Component {
     if (this.state.view.name === 'details') {
       return (
         <div>
-          <Header name="$Wicked Sales" />
+          <Header name="$Wicked Sales"
+            cartItemCount ={this.state.cart.length} />
           <ProductDetails
             setView={this.setView}
-            product={this.state.view.params} />
+            product={this.state.view.params}
+            addToCart={this.addToCart} />
         </div>
       );
     }
