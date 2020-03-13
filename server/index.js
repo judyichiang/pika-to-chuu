@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 require('dotenv/config');
 const express = require('express');
 
@@ -121,7 +120,6 @@ app.post('/api/cart', (req, res, next) => {
     })
   // --------------------------------------------
     .then(result3 => {
-      console.log(result3);
       req.session.cartId = result3.cartId;
       const price = result3.price;
 
