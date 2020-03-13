@@ -153,8 +153,8 @@ app.post('/api/cart', (req, res, next) => {
         .then(data =>
           res.status(201).json(data.rows)
         );
-    });
-
+    })
+    .catch(err => next(err));
 });
 
 app.use('/api', (req, res, next) => {
