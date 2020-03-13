@@ -100,12 +100,15 @@ app.post('/api/cart', (req, res, next) => {
     .then(data => {
       req.session.cartId = data.cartId;
       const sql = `
-      inser into "cartItems" ("cartId", "productId", "price")
+      insert into "cartItems" ("cartId", "productId", "price")
       values($1, $2, $3)
       returning "cartItemId"
       `;
-      db.query(sql);
-
+      // eslint-disable-next-line no-undef
+      const val = [data.cartId, productId, price];
+      return db.query(sql, val)
+        .then(cartItemId => cartItemId.rows[0]
+        );
     });
 });
 
