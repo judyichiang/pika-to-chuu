@@ -95,7 +95,6 @@ app.post('/api/cart', (req, res, next) => {
   const params = [productId];
   db.query(sql, params)
     .then(result => {
-      console.log('result:', result);
       const product = result.rows[0];
       if (!product) {
         throw new ClientError('cannot find data', 400);
