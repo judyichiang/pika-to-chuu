@@ -12,6 +12,7 @@ export default class ProductDetails extends React.Component {
 
   componentDidMount() {
     const productId = this.props.product.productId;
+
     fetch(`api/products/${productId}`)
       .then(res => res.json())
       .then(data => {
@@ -38,6 +39,7 @@ export default class ProductDetails extends React.Component {
               <h3>{this.state.product.name}</h3>
               <p>${(this.state.product.price / Math.pow(10, 2)).toFixed(2)}</p>
               <p>{this.state.product.shortDescription}</p>
+              <p><button className="btn btn-primary" onClick={() => this.props.addToCart(this.state.product)} >Add to Cart</button></p>
             </div>
           </div>
           <div className="row"></div>

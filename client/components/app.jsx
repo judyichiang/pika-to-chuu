@@ -9,12 +9,16 @@ export default class App extends React.Component {
     this.state = {
       message: null,
       isLoading: true,
-      view: { name: 'catalog', params: {} }
+      view: { name: 'catalog', params: {} },
+      cart: []
     };
     this.setView = this.setView.bind(this);
+    this.getCartItems = this.getCartItems.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   componentDidMount() {
+    this.getCartItems();
     fetch('/api/health-check')
       .then(res => res.json())
       .then(data => this.setState({ message: data.message || data.error }))
@@ -28,11 +32,39 @@ export default class App extends React.Component {
     });
   }
 
+  getCartItems() {
+    fetch('api/cart')
+      .then(res => res.json())
+      .then(cart => {
+        this.setState({
+          cart
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
+  addToCart(product) {
+    fetch('api/cart', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(product)
+    })
+      .then(res => res.json())
+      .then(product => {
+        this.setState({
+          cart: this.state.cart.concat(product)
+        });
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     if (this.state.view.name === 'catalog') {
       return (
         <div>
-          <Header name="$Wicked Sales" />
+          <Header name="$Wicked Sales"
+            cartItemCount={this.state.cart.length}
+          />
           <ProductList
             setView={this.setView}
           />
@@ -43,10 +75,12 @@ export default class App extends React.Component {
     if (this.state.view.name === 'details') {
       return (
         <div>
-          <Header name="$Wicked Sales" />
+          <Header name="$Wicked Sales"
+            cartItemCount ={this.state.cart.length} />
           <ProductDetails
             setView={this.setView}
-            product={this.state.view.params} />
+            product={this.state.view.params}
+            addToCart={this.addToCart} />
         </div>
       );
     }
