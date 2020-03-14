@@ -9,8 +9,8 @@ export default function CartSummaryItem(props) {
       </div>
       <div className="col-8">
         <h5>{props.name}</h5>
-        <p>{props.price}</p>
-        <p>{props.props.shortDescription}</p>
+        <p>${(props.price / Math.pow(10, 2)).toFixed(2)}</p>
+        <p>{props.shortDescription}</p>
       </div>
     </div>
 
