@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 require('dotenv/config');
 const express = require('express');
@@ -119,7 +120,7 @@ app.post('/api/cart', (req, res, next) => {
           return price;
         });
     })
-  // --------------------------------------------
+    // --------------------------------------------
     .then(result3 => {
       req.session.cartId = result3.cartId;
       const price = result3.price;
@@ -173,6 +174,14 @@ app.post('api/orders', (req, res, next) => {
     values ($1,$2,$3,$4)
   returning *
   `;
+  const val = [cartId, name, creditCard, shippingAddress];
+  return db.query(sql, val)
+    .then(result => {
+      console.log(result);
+      const order = result;
+      delete req.session.cartId;
+      res.status(201).json(order);
+    });
 
 });
 
