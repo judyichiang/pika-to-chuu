@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 require('dotenv/config');
 const express = require('express');
 
@@ -155,6 +156,12 @@ app.post('/api/cart', (req, res, next) => {
         );
     })
     .catch(err => next(err));
+});
+
+app.post('api/orders', (req, res, next) => {
+  const { cartId } = req.session;
+  const { name, creditCard, shippingAddress } = req.body;
+
 });
 
 app.use('/api', (req, res, next) => {
