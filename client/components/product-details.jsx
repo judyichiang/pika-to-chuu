@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 
 export default class ProductDetails extends React.Component {
@@ -19,7 +18,6 @@ export default class ProductDetails extends React.Component {
         this.setState({
           product: data
         });
-        console.log(data);
       })
       .catch(err => console.error(err));
   }

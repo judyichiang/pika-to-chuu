@@ -19,6 +19,13 @@ export default function CartSummary(props) {
         shortDescription={product.shortDescription}
       />
     );
+    const array = props.cartItem;
+    let num = 0;
+    for (let i = 0; i < array.length; i++) {
+      num += array[i].price;
+    }
+
+    const total = (num / Math.pow(10, 2)).toFixed(2);
 
     return (
       <div className="container">
@@ -30,7 +37,7 @@ export default function CartSummary(props) {
           <div>
             <div className="row p-4">{data}</div>
           </div>
-          <h1>Total: </h1>
+          <h3>Total: ${total}</h3>
         </div>
       </div>
     );
