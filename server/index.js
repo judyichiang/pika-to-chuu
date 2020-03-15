@@ -168,6 +168,12 @@ app.post('api/orders', (req, res, next) => {
     return res.status(400).json({ error: 'missing customer information' });
   }
 
+  const sql = `
+  insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+    values ($1,$2,$3,$4)
+  returning *
+  `;
+
 });
 
 app.use('/api', (req, res, next) => {
