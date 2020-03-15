@@ -161,6 +161,12 @@ app.post('/api/cart', (req, res, next) => {
 app.post('api/orders', (req, res, next) => {
   const { cartId } = req.session;
   const { name, creditCard, shippingAddress } = req.body;
+  if (!cartId) {
+    return res.status(400).json({ error: 'cartId does not exist' });
+  }
+  if (!name && !creditCard && !shippingAddress) {
+    return res.status(400).json({ error: 'missing customer information' });
+  }
 
 });
 
