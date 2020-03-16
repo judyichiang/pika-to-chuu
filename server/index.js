@@ -160,10 +160,12 @@ app.post('/api/cart', (req, res, next) => {
 });
 
 app.post('/api/orders', (req, res, next) => {
+  console.log('1', req.session);
   console.log(req.session.cartId);
   console.log(req.body.name);
   console.log(req.body.creditCard);
   console.log(req.body.shippingAddress);
+  const { cartId } = req.session;
 
   if (!req.session.cartId) {
     return res.status(400).json({
@@ -185,8 +187,8 @@ app.post('/api/orders', (req, res, next) => {
 
   db.query(sql, val)
     .then(result => {
-      res.status(200).json(result);
       delete req.session.cartId;
+      res.status(201).json(result);
     })
     .catch(err => next(err));
 });
