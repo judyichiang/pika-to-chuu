@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 require('dotenv/config');
 const express = require('express');
 
@@ -160,11 +158,6 @@ app.post('/api/cart', (req, res, next) => {
 });
 
 app.post('/api/orders', (req, res, next) => {
-  console.log('1', req.session);
-  console.log(req.session.cartId);
-  console.log(req.body.name);
-  console.log(req.body.creditCard);
-  console.log(req.body.shippingAddress);
 
   if (!req.session.cartId) {
     return res.status(400).json({
