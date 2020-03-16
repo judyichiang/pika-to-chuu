@@ -20,12 +20,11 @@ export default class CheckoutForm extends React.Component {
   }
 
   handleCreditCard(event) {
-    this.setState({ creditCart: event.target.creditCard });
-
+    this.setState({ creditCard: event.target.value });
   }
 
   handleAddress(event) {
-    this.setState({ shippingAddress: event.target.shippingAddress });
+    this.setState({ shippingAddress: event.target.value });
   }
 
   handleSubmit(event) {
@@ -53,25 +52,25 @@ export default class CheckoutForm extends React.Component {
           <h3>Order Total: ${total}</h3>
           <form onSubmit={this.handleSubmit}> {/* ----------form-------------- */}
             {/* ------------name-------------- */}
-            <div>
+            <div className="form-group">
               <label className="my-2">
                 <p>Name</p>
-                <input type="text" value={this.state.name} onChange={this.handleName} />
+                <input type="text" className="form-control" value={this.state.name} onChange={this.handleName} />
               </label>
             </div>
             {/* ------------cc-------------- */}
-            <div>
+            <div className="form-group">
               <label className="my-2">
                 <p>Credit Card</p>
-                <input type="text" value={this.state.creditCard} onChange={this.handleCreditCard} />
+                <input type="text" className="form-control" value={this.state.creditCard} onChange={this.handleCreditCard} />
               </label>
             </div>
             {/* ------------addy-------------- */}
-            <div>
+            <div className="form-group">
               <label className="my-2">
-                <p>Shipping Address</p>
-                <input type="text" value={this.state.shippingAddress} onChange={this.handleAddress} />
-              </label>
+                <p>Shipping Address</p></label>
+              <textarea className="form-control" id="shippingAddress" cols="30" rows="10" value={this.state.shippingAddress} onChange={this.handleAddress}></textarea>
+
             </div>
 
             {/* ------------button-------------- */}
