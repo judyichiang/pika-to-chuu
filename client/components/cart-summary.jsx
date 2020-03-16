@@ -5,6 +5,9 @@ export default function CartSummary(props) {
   if (props.cartItem.length === 0) {
     return (
       <div>
+        <div onClick={() => props.setView('catalog', {})}>
+          &lt; Back to Catalog
+        </div>
         <h1>Cart is empty, go buy something!</h1>
       </div>
     );
@@ -33,11 +36,15 @@ export default function CartSummary(props) {
           <div onClick={() => props.setView('catalog', {})}>
             &lt; Back to Catalog
           </div>
-
           <div>
             <div className="row p-4">{data}</div>
           </div>
-          <h3>Total: ${total}</h3>
+          <div className="row">
+            <div className="col-8 "><h3>Total: ${total}</h3></div>
+            <div className="col-4 "><button type="button" className="btn btn-primary float-right"
+              onClick={() => props.setView('checkout', {})}
+            >Checkout</button></div>
+          </div>
         </div>
       </div>
     );

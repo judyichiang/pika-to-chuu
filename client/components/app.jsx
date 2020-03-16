@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
+import CheckoutForm from './checkout-form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -65,8 +66,17 @@ export default class App extends React.Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(obj)
-    });
-    // ---------------------------
+    })
+      .then(res => res.json())
+      .then(obj => {
+        this.setState({
+          view: { name: 'catalog', params: {} },
+          cart: []
+        });
+        // -------------
+      })
+      .catch(err => console.error(err));
+    // ----------------------
   }
 
   render() {
@@ -113,5 +123,22 @@ export default class App extends React.Component {
       );
     }
 
+    if (this.state.view.name === 'checkout') {
+      return (
+        <div>
+          <Header name="$Wicked Sales"
+            cartItemCount={this.state.cart.length}
+            setView={this.setView} />
+          <CheckoutForm
+            placeOrder ={this.placeOrder}
+            cartItem={this.state.cart}
+            setView={this.setView}
+          />
+
+        </div>
+      );
+    }
+
+    // ------------------------------------
   }
 }
