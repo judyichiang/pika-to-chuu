@@ -159,30 +159,36 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.post('api/orders', (req, res, next) => {
-  const { cartId } = req.session;
-  const { name, creditCard, shippingAddress } = req.body;
-  if (!cartId) {
-    return res.status(400).json({ error: 'cartId does not exist' });
+app.post('/api/orders', (req, res, next) => {
+  console.log(req.session.cartId);
+  console.log(req.body.name);
+  console.log(req.body.creditCard);
+  console.log(req.body.shippingAddress);
+
+  if (!req.session.cartId) {
+    return res.status(400).json({
+      error: 'cartId not found'
+    });
   }
-  if (!name && !creditCard && !shippingAddress) {
-    return res.status(400).json({ error: 'missing customer information' });
+  if (!req.body.name || !req.body.creditCard || !req.body.shippingAddress) {
+    return res.status(400).json({
+      error: 'missing customer information'
+    });
   }
 
   const sql = `
-  insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
-    values ($1,$2,$3,$4)
-  returning *
+    insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+      values ($1, $2, $3, $4)
+      returning *
   `;
-  const val = [cartId, name, creditCard, shippingAddress];
-  return db.query(sql, val)
-    .then(result => {
-      console.log(result);
-      const order = result;
-      delete req.session.cartId;
-      res.status(201).json(order);
-    });
+  const val = [req.session.cartId, req.body.name, req.body.creditCard, req.body.shippingAddress];
 
+  db.query(sql, val)
+    .then(result => {
+      res.status(200).json(result);
+      delete req.session.cartId;
+    })
+    .catch(err => next(err));
 });
 
 app.use('/api', (req, res, next) => {
