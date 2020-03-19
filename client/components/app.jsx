@@ -3,6 +3,7 @@ import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
+import CheckoutForm from './checkout-form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.placeOrder = this.placeOrder.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +59,24 @@ export default class App extends React.Component {
         });
       })
       .catch(err => console.error(err));
+  }
+
+  placeOrder(obj) {
+    fetch('api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(obj)
+    })
+      .then(res => res.json())
+      .then(obj => {
+        this.setState({
+          view: { name: 'catalog', params: {} },
+          cart: []
+        });
+        // -------------
+      })
+      .catch(err => console.error(err));
+    // ----------------------
   }
 
   render() {
@@ -103,5 +123,22 @@ export default class App extends React.Component {
       );
     }
 
+    if (this.state.view.name === 'checkout') {
+      return (
+        <div>
+          <Header name="$Wicked Sales"
+            cartItemCount={this.state.cart.length}
+            setView={this.setView} />
+          <CheckoutForm
+            onSubmit ={this.placeOrder}
+            cartItem={this.state.cart}
+            setView={this.setView}
+          />
+
+        </div>
+      );
+    }
+
+    // ------------------------------------
   }
 }
