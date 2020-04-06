@@ -3,7 +3,7 @@ A full stack Node.js and React shopping cart app.
 
 ## Live Demo
 
-Try the application live at TBD
+Try the application live at [  TBA  ]
 
 ## Features
 - User can view the products for sale
@@ -31,15 +31,45 @@ Try the application live at TBD
 git clone https://github.com/judyichiang/wicked-sales-js.git
 ```
 
-2. Install all dependencies with NPM.
+2. Change directory to cloned folder
+```shell
+cd wicked-sales-js/
+```
+
+3. Install all dependencies with NPM.
 ```shell
 npm install
 ```
 
-3. Start the project.
+4. Start PostgreSQL server
+```shell
+sudo service postgresql start
+```
+
+5. Create the database
+```shell
+createdb wickedSales
+```
+
+6. Import the example database to PostgreSQL
+```shell
+npm db:import
+```
+
+7. Access the wickedSales Postgresql database server using pgweb in your default web browser
+```shell
+pgweb --db=wickedSales
+```
+
+8. Create the database
+```shell
+createdb wickedSales
+```
+
+9. Start the project.
 
 ```shell
 npm run dev
 ```
 
-4. Once started, you can view the application by opening [https://localhost:3000](https://localhost:3000)
+10. Once started, you can view the application by opening [https://localhost:3000](https://localhost:3000)
