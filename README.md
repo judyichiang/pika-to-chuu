@@ -61,15 +61,10 @@ npm db:import
 pgweb --db=wickedSales
 ```
 
-8. Create the database
-```shell
-createdb wickedSales
-```
-
-9. Start the project.
+8. Start the project.
 
 ```shell
 npm run dev
 ```
 
-10. Once started, you can view the application by opening [https://localhost:3000](https://localhost:3000)
+9. Once started, you can view the application by opening [https://localhost:3000](https://localhost:3000)
