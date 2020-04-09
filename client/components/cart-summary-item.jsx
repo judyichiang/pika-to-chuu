@@ -3,14 +3,20 @@ import React from 'react';
 
 export default function CartSummaryItem(props) {
   return (
-    <div className="row">
-      <div className="col-4">
-        <img src={props.image} alt={props.name} />
-      </div>
-      <div className="col-8">
-        <h5>{props.name}</h5>
-        <p>${(props.price / Math.pow(10, 2)).toFixed(2)}</p>
-        <p>{props.shortDescription}</p>
+    <div className="card m-3">
+      <div className="row no-gutters">
+        <div className="col-md-4">
+          <img className="col-xl-6 col-lg-5 col-md-6 col-xs-12 col-sm-6" src={props.image} alt={props.name} />
+        </div>
+        <div className="col-md-8">
+
+          <div className="card-body">
+            <h5 className="card-title">{props.name}</h5>
+            <p className="card-subtitle text-muted">${(props.price / Math.pow(10, 2)).toFixed(2)}</p>
+            <p className="card-text">{props.shortDescription}</p>
+          </div>
+
+        </div>
       </div>
     </div>
 
