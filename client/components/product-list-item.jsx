@@ -7,7 +7,7 @@ export default class ProductionListItem extends React.Component {
 
     return (
 
-      <div className="col-4 mb-4">
+      <div className="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-xs-12 ml-4 mr-4 mt-4">
         <div className="card"
           onClick={() => this.props.setView('details',
             { productId: this.props.productId })}
