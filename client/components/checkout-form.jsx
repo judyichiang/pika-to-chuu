@@ -82,7 +82,7 @@ export default class CheckoutForm extends React.Component {
           </form> {/* ----------form-------------- */}
         </div>
 
-        <div onClick={() => this.props.setView('catalog', {})}>
+        <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
           &lt; Back to Catalog
         </div>
       </div>
