@@ -40,8 +40,8 @@ export default class ProductList extends React.Component {
     );
 
     return (
-      <div className="container">
-        <div className="row p-4">{data}</div>
+      <div className="container-fluid">
+        <div className="d-flex flex-wrap justify-content-center">{data}</div>
       </div>
     );
   }

@@ -25,23 +25,23 @@ export default class ProductDetails extends React.Component {
   render() {
     if (this.state.product) {
       return (
-        <div className="container p-3">
-          <div onClick={() => this.props.setView('catalog', {})}>
+        <div className="container-fluid p-3">
+          <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
             &lt; Back to Catalog
           </div>
           <div className="row p-3">
-            <div className="col-4">
-              <img src={this.state.product.image} alt={this.state.product.name} />
-            </div>
-            <div className="col-8">
-              <h3>{this.state.product.name}</h3>
-              <p>${(this.state.product.price / Math.pow(10, 2)).toFixed(2)}</p>
+
+            <img className="col-xl-6 col-lg-5 col-md-6 col-xs-12 col-sm-6" src={this.state.product.image} alt={this.state.product.name} />
+
+            <div className="col-xl-6 col-lg-5 col-md-6 col-xs-12 col-sm-6">
+              <h3 className="mb-3">{this.state.product.name}</h3>
+              <p className="mb-3">${(this.state.product.price / Math.pow(10, 2)).toFixed(2)}</p>
               <p>{this.state.product.shortDescription}</p>
-              <p><button className="btn btn-primary" onClick={() => this.props.addToCart(this.state.product)} >Add to Cart</button></p>
+              <p><button className="btn btn-primary pl-3 pr-3 pt-2 pb-2" onClick={() => this.props.addToCart(this.state.product)} >Add to Cart</button></p>
             </div>
           </div>
           <div className="row"></div>
-          <div className="col">
+          <div className="pl-4 pr-4 mt-3 col-12">
             {this.state.product.longDescription}
           </div>
         </div>
