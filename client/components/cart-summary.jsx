@@ -5,7 +5,7 @@ export default function CartSummary(props) {
   if (props.cartItem.length === 0) {
     return (
       <div>
-        <div onClick={() => props.setView('catalog', {})}>
+        <div className="pointer" onClick={() => props.setView('catalog', {})}>
           &lt; Back to Catalog
         </div>
         <h1>Cart is empty, go buy something!</h1>
