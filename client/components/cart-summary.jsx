@@ -31,7 +31,7 @@ export default function CartSummary(props) {
     const total = (num / Math.pow(10, 2)).toFixed(2);
 
     return (
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
           <div onClick={() => props.setView('catalog', {})}>
             &lt; Back to Catalog
