@@ -48,12 +48,12 @@ export default class CheckoutForm extends React.Component {
     let button;
     if (this.state.name && this.state.creditCard && this.state.shippingAddress) {
 
-      button = <div className="col my-4"><button type="submit" className="btn btn-primary float-right mt-5 mr-5 "
+      button = <div className="col my-4 mb-5"><button type="submit" className="btn btn-primary float-right  mr-5 "
         onClick={() => this.props.setView('checkout', {})}
       >Place Order</button></div>;
 
     } else {
-      button = <div className="col my-4"><button type="submit" className="btn btn-primary float-right mt-5 mr-5 disabled"
+      button = <div className="col my-4 mb-5"><button type="submit" className="btn btn-primary float-right  mr-5 disabled"
         disabled={true}
       >Place Order</button></div>;
     }
@@ -63,7 +63,7 @@ export default class CheckoutForm extends React.Component {
         <div className="col">
           <h1>My Cart</h1>
           <h3>Order Total: ${total}</h3>
-          <form onSubmit={this.handleSubmit}> {/* ----------form-------------- */}
+          <form className="mb-5" onSubmit={this.handleSubmit}> {/* ----------form-------------- */}
             {/* ------------name-------------- */}
             <div className="form-group">
               <label className="my-2">
