@@ -71,14 +71,14 @@ export default class CheckoutForm extends React.Component {
                 <input type="text" className="form-control" value={this.state.name} onChange={this.handleName} />
               </label>
             </div>
-            {/* ------------cc-------------- */}
+            {/* ------------credit card-------------- */}
             <div className="form-group">
               <label className="my-2">
                 <p>Credit Card</p>
                 <input type="text" className="form-control" value={this.state.creditCard} onChange={this.handleCreditCard} />
               </label>
             </div>
-            {/* ------------addy-------------- */}
+            {/* ------------address-------------- */}
             <div className="form-group">
               <label className="my-2">
                 <p>Shipping Address</p></label>
