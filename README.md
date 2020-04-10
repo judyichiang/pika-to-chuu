@@ -12,6 +12,7 @@ Try the application live on [my portfolio](https://online-store.judyichiang.com/
 - User can add a product to their cart
 - User can view their cart summary
 - User can place an order
+- Mobile Responsiveness
 
 ## Preview
 
