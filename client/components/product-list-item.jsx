@@ -8,13 +8,14 @@ export default class ProductionListItem extends React.Component {
     return (
 
       <div className="col-md-4 mb-3 pointer"
-        onClick={() => this.props.setView('details',
-          { productId: this.props.productId })} >
-        <img className="card-img-top h-50" src={this.props.image} alt={this.props.name}/>
-        <div className="card-body">
-          <h5 className="card-title">{this.props.name}</h5>
-          <p className="text-secondary">${(this.props.price / Math.pow(10, 2)).toFixed(2)}</p>
-          <p className="card-text">{this.props.shortDescription}</p>
+        onClick={() => this.props.setView('details', { productId: this.props.productId })} >
+        <div className="card h-100">
+          <img className="card-img-top h-50" src={this.props.image} alt={this.props.name} />
+          <div className="card-body">
+            <h5 className="card-title">{this.props.name}</h5>
+            <p className="card-subtitle text-muted">${(this.props.price / Math.pow(10, 2)).toFixed(2)}</p>
+            <p className="card-text">{this.props.shortDescription}</p>
+          </div>
         </div>
       </div>
 

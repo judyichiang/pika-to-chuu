@@ -180,7 +180,7 @@ app.post('/api/orders', (req, res, next) => {
   db.query(sql, val)
     .then(result => {
       delete req.session.cartId;
-      res.status(201).json(result.rows);
+      res.status(201).json(result.rows[0]);
     })
     .catch(err => next(err));
 });

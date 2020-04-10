@@ -25,7 +25,7 @@ export default class ProductDetails extends React.Component {
   render() {
     if (this.state.product) {
       return (
-        <div className="container-fluid p-3">
+        <div className="container p-3">
           <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
             &lt; Back to Catalog
           </div>

@@ -45,6 +45,19 @@ export default class CheckoutForm extends React.Component {
     }
     const total = (num / Math.pow(10, 2)).toFixed(2);
 
+    let button;
+    if (this.state.name && this.state.creditCard && this.state.shippingAddress) {
+
+      button = <div className="col my-4"><button type="submit" className="btn btn-primary float-right mt-5 mr-5 "
+        onClick={() => this.props.setView('checkout', {})}
+      >Place Order</button></div>;
+
+    } else {
+      button = <div className="col my-4"><button type="submit" className="btn btn-primary float-right mt-5 mr-5 disabled"
+        disabled={true}
+      >Place Order</button></div>;
+    }
+
     return (
       <div className="container">
         <div className="col">
@@ -73,17 +86,13 @@ export default class CheckoutForm extends React.Component {
 
             </div>
 
-            {/* ------------button-------------- */}
-            <div className="col my-4"><button type="submit" className="btn btn-primary"
-              onClick={() => this.props.setView('checkout', {})}
-            >Place Order</button></div>
-            {/* ------------button-------------- */}
+            {button}
+
+            <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
+              &lt; Back to Catalog
+            </div>
 
           </form> {/* ----------form-------------- */}
-        </div>
-
-        <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
-          &lt; Back to Catalog
         </div>
       </div>
     );
