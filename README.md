@@ -5,6 +5,15 @@ A full stack Node.js and React shopping cart app.
 
 Try the application live on [my portfolio](https://shopping.judyichiang.com/)
 
+## Technologies Used
+- React.js
+- Node.js
+- Express.js
+- PostgreSQL 10
+- Bootstrap 4
+- AWS EC2
+- Webpack 4
+
 ## Features
 - User can view the products for sale
 - User can view details of a product
