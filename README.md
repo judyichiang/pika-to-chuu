@@ -10,9 +10,13 @@ Try the application live on [my portfolio](https://shopping.judyichiang.com/)
 - Node.js
 - Express.js
 - PostgreSQL 10
+- HTML5
+- CSS3
 - Bootstrap 4
 - AWS EC2
 - Webpack 4
+- npm
+
 
 ## Features
 - User can view the products for sale
