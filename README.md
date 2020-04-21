@@ -1,4 +1,4 @@
-# wicked-sales-js
+# e-commerce
 A full stack Node.js and React shopping cart app.
 
 ## Live Demo
