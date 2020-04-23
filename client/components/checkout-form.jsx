@@ -61,7 +61,7 @@ export default class CheckoutForm extends React.Component {
     return (
       <div className="container">
         <div className="col">
-          <h1>My Cart</h1>
+          <h1>Place Order</h1>
           <h3>Order Total: ${total}</h3>
           <form className="mb-5" onSubmit={this.handleSubmit}> {/* ----------form-------------- */}
             {/* ------------name-------------- */}
