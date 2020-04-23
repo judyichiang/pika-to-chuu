@@ -83,7 +83,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <div className="mb-2">
-          <Header name="$Wicked Sales"
+          <Header name="Pika-to-Chuu"
             cartItemCount={this.state.cart.length}
             setView={this.setView}
           />
@@ -97,7 +97,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'details') {
       return (
         <div className="mb-2">
-          <Header name="$Wicked Sales"
+          <Header name="Pika-to-Chuu"
             cartItemCount ={this.state.cart.length}
             setView={this.setView} />
           <ProductDetails
@@ -111,7 +111,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'cart') {
       return (
         <div className="mb-2">
-          <Header name="$Wicked Sales"
+          <Header name="Pika-to-Chuu"
             cartItemCount={this.state.cart.length}
             setView={this.setView} />
           <CartSummary
@@ -126,7 +126,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'checkout') {
       return (
         <div className="mb-2">
-          <Header name="$Wicked Sales"
+          <Header name="Pika-to-Chuu"
             cartItemCount={this.state.cart.length}
             setView={this.setView} />
           <CheckoutForm
