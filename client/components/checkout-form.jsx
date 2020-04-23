@@ -80,7 +80,7 @@ export default class CheckoutForm extends React.Component {
               {/* ------------name-------------- */}
               <div className="form-group">
                 <label className="my-2">
-                  <p>Name</p>
+                  <p>Name on Credit Card</p>
                   <input type="text" className="form-control" value={this.state.name} onChange={this.handleName} />
                 </label>
               </div>
@@ -88,7 +88,7 @@ export default class CheckoutForm extends React.Component {
               <div className="form-group">
                 <label className="my-2">
                   <p>Credit Card</p>
-                  <input type="text" className="form-control" value={this.state.creditCard} onChange={this.handleCreditCard} />
+                  <input type="text" className="form-control" name="creditCard" value={this.state.creditCard} onChange={this.handleCreditCard} />
                 </label>
               </div>
               {/* ------------address-------------- */}
