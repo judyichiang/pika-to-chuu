@@ -1,4 +1,5 @@
 import React from 'react';
+import CartSummaryItem from './cart-summary-item';
 
 export default class CheckoutForm extends React.Component {
   constructor(props) {
@@ -58,6 +59,16 @@ export default class CheckoutForm extends React.Component {
       >Place Order</button></div>;
     }
 
+    const data = this.props.cartItem.map((product, index) =>
+      <CartSummaryItem
+        key={index}
+        item={product}
+        name={product.name}
+        price={product.price}
+        image={product.image}
+      />
+    );
+
     return (
       <div className="container">
         <div className="d-flex flex-row m-0 p-5">
@@ -100,6 +111,9 @@ export default class CheckoutForm extends React.Component {
           {/* in the cart */}
           <div className="col-md-4 d-md-block d-none">
             <p>Cart Summary</p>
+            <div>
+              <div className="row p-4">{data}</div>
+            </div>
           </div>
 
         </div>
