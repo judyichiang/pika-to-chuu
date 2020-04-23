@@ -1,4 +1,5 @@
 import React from 'react';
+import CartSummaryItem from './cart-summary-item';
 
 export default class CheckoutForm extends React.Component {
   constructor(props) {
@@ -58,41 +59,63 @@ export default class CheckoutForm extends React.Component {
       >Place Order</button></div>;
     }
 
+    const data = this.props.cartItem.map((product, index) =>
+      <CartSummaryItem
+        key={index}
+        item={product}
+        name={product.name}
+        price={product.price}
+        image={product.image}
+      />
+    );
+
     return (
       <div className="container">
-        <div className="col">
-          <h1>My Cart</h1>
-          <h3>Order Total: ${total}</h3>
-          <form className="mb-5" onSubmit={this.handleSubmit}> {/* ----------form-------------- */}
-            {/* ------------name-------------- */}
-            <div className="form-group">
-              <label className="my-2">
-                <p>Name</p>
-                <input type="text" className="form-control" value={this.state.name} onChange={this.handleName} />
-              </label>
-            </div>
-            {/* ------------credit card-------------- */}
-            <div className="form-group">
-              <label className="my-2">
-                <p>Credit Card</p>
-                <input type="text" className="form-control" value={this.state.creditCard} onChange={this.handleCreditCard} />
-              </label>
-            </div>
-            {/* ------------address-------------- */}
-            <div className="form-group">
-              <label className="my-2">
-                <p>Shipping Address</p></label>
-              <textarea className="form-control" id="shippingAddress" cols="30" rows="10" value={this.state.shippingAddress} onChange={this.handleAddress}></textarea>
+        <div className="d-flex flex-row m-0 p-5">
 
+          <div className="col-md-8 slide-in">
+            <h1>Place Order</h1>
+            <h3>Order Total: ${total}</h3>
+            <form className="mb-5" onSubmit={this.handleSubmit}> {/* ----------form-------------- */}
+              {/* ------------name-------------- */}
+              <div className="form-group">
+                <label className="my-2">
+                  <p>Name</p>
+                  <input type="text" className="form-control" value={this.state.name} onChange={this.handleName} />
+                </label>
+              </div>
+              {/* ------------credit card-------------- */}
+              <div className="form-group">
+                <label className="my-2">
+                  <p>Credit Card</p>
+                  <input type="text" className="form-control" value={this.state.creditCard} onChange={this.handleCreditCard} />
+                </label>
+              </div>
+              {/* ------------address-------------- */}
+              <div className="form-group">
+                <label className="my-2">
+                  <p>Shipping Address</p></label>
+                <textarea className="form-control" id="shippingAddress" cols="30" rows="10" value={this.state.shippingAddress} onChange={this.handleAddress}></textarea>
+
+              </div>
+
+              {button}
+
+              <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
+                &lt; Back to Catalog
+              </div>
+
+            </form> {/* ----------form-------------- */}
+          </div>
+
+          {/* in the cart */}
+          <div className="col-md-4 d-md-block d-none">
+            <p>Cart Summary</p>
+            <div>
+              <div className="row p-4">{data}</div>
             </div>
+          </div>
 
-            {button}
-
-            <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
-              &lt; Back to Catalog
-            </div>
-
-          </form> {/* ----------form-------------- */}
         </div>
       </div>
     );
