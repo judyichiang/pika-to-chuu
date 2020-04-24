@@ -1,4 +1,4 @@
-# e-commerce
+# Pika-to-Chuu ♥
 A full stack Node.js and React shopping cart app.
 
 ## Live Demo
