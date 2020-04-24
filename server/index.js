@@ -158,8 +158,9 @@ app.post('/api/cart', (req, res, next) => {
 });
 
 app.delete('/api/cart/:cartItemId', (req, res, next) => {
-  const { cartItemId } = req.params;
-  const params = [cartItemId];
+  // const { cartItemId } = req.params;
+  // const params = [cartItemId];
+  const cartItemId = req.params.cartItemId;
 
   const sql = `
     DELETE FROM "cartItems"
@@ -167,15 +168,24 @@ app.delete('/api/cart/:cartItemId', (req, res, next) => {
     RETURNING *
     `;
 
+  const params = [cartItemId];
   db.query(sql, params)
     .then(result => {
+      // const item = result.rows;
+      // if (item.length === 0) {
+      //   return res.status(200)
+
+      // }else {
+      //   return res.json(item)
+      // }
+
       if (!result.rows[0]) {
         res.status(404).json({ error: `Cannot find cartItemId ${cartItemId}` });
       } else {
         res.status(204).json(`cartItemId ${cartItemId} has been removed`);
       }
-
     })
+
     .catch(err => next(err));
 });
 
