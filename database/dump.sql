@@ -239,6 +239,8 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 173	84	3	2900
 174	85	3	2900
 175	85	1	2999
+176	85	8	2000
+177	85	12	4500
 \.
 
 
@@ -278,10 +280,13 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 3	Eevee Cape Pikachu	2500	/images/pikachu/eevee.png	Eevee Cape Pikachu Poke Plush - 9 In.	Two great Pokemon combined in one adorable plush! Pikachu is wearing a cape that looks like Eevee, complete with a puffy tail and supersoft ruff. It stands up cute and tall as it dreams of adventure!
 4	Charizard Costume Pikachu	2500	/images/pikachu/charizard.png	Charizard Poke Maniac Costume Pikachu Poke Plush - 8 In.	As seen in the Pokemon video games, Poke Maniacs are Trainers who love dressing up as intimidating Pokemon and other creatures. This fantastic plush boasts big claws and a removable hood - revealing Pikachu inside! Its tail flame combined with stompy claws and feet make this a plush to play with, roar with, and enjoy!
 5	Snorlax Costume Pikachu	2500	/images/pikachu/snorlax.png	Snorlax Poke Maniac Costume Pikachu Poke Plush - 8 In.	As seen in the Pokemon video games, Poke Maniacs are Trainers who love dressing up as intimidating Pokemon and other creatures. Although this Pikachu plush is in costume as Snorlax, it's not sleepy at all! With a tough look, it seems more than ready to jump into battle!
-6	Tyranitar Costume Pikachu	2500	/images/pikachu/tyranitar.png	Tyranitar Poke Maniac Costume Pikachu Poke Plush - 8 1/2 In.	As seen in the Pokemon video games, Poke Maniacs are Trainers who love dressing up as intimidating Pokemon and other creatures. A Tyranitar costume is a dream for a Poke Maniac - and lots of fun for Pikachu! Embroidered eyes and big claws look ready to tear it up!
-7	Mega Audino Cape Pikachu	2000	/images/pikachu/Mega_audino.png	Mega Audino Cape Pikachu Poke Plush - 8.5 In.	Cute as a button, this Pikachu is all dressed up in its Mega Audino costume! With lots of curliques and swirls and a pink-lined cape, this costume is round and sweet, with bonus swirls on the ears and a puffball tail. Supercute costume, Pikachu! A Pokemon Center original design.
-8	Ditto As Pikachu	2000	/images/pikachu/ditto.png	Ditto As Pikachu Plush - 7 In.	This Ditto plush is pretending to be Pikachu! With embroidered mouth and eyes, this is some super-sweet plush!
-9	Boss Giovanni Costume Pikachu	2000	/images/pikachu/snorlax.png	Boss Costume Collection: Team Rocket Giovanni Costume Pikachu Poke Plush - 9 In.	That evil grin, that rainbow "R" logo - looks familiar! Yes, this Pikachu plush is all dressed up as Team Rocket leader Giovanni, the original Pokemon villain from Kanto who made a memorable reappearance in the Alola region! Team Rocket is going to see its plans come together someday, so watch out! This plush makes a great gift for fans of the original Pokemon games and newer games, too!
+6	Tyranitar Costume Pikachu	2500	/images/pikachu/tyranitar.png	Tyranitar Poke Maniac Costume Pikachu Poke Plush - 8.5 In.	As seen in the Pokemon video games, Poke Maniacs are Trainers who love dressing up as intimidating Pokemon and other creatures. A Tyranitar costume is a dream for a Poke Maniac - and lots of fun for Pikachu! Embroidered eyes and big claws look ready to tear it up!
+7	Hydreigon Costume Pikachu	2500	/images/pikachu/hydreigon.png	Hydreigon Poke Maniac Costume Pikachu Poke Plush - 8.5 In.	As seen in the Pokemon video games, Poke Maniacs are Trainers who love dressing up as intimidating Pokemon and other creatures...and this Pikachu in a three-headed Hydreigon costume is a sight to see! A removable hood, embroidered details, plus winglets on the costume's suspenders - this plush has it all!
+8	Mega Audino Cape Pikachu	2000	/images/pikachu/Mega_audino.png	Mega Audino Cape Pikachu Poke Plush - 8.5 In.	Cute as a button, this Pikachu is all dressed up in its Mega Audino costume! With lots of curliques and swirls and a pink-lined cape, this costume is round and sweet, with bonus swirls on the ears and a puffball tail. Supercute costume, Pikachu! A Pokemon Center original design.
+9	Boss Giovanni Costume Pikachu	2000	/images/pikachu/team _rocket_boss.png	Boss Costume Collection: Team Rocket Giovanni Costume Pikachu Poke Plush - 9 In.	That evil grin, that rainbow "R" logo - looks familiar! Yes, this Pikachu plush is all dressed up as Team Rocket leader Giovanni, the original Pokemon villain from Kanto who made a memorable reappearance in the Alola region! Team Rocket is going to see its plans come together someday, so watch out! This plush makes a great gift for fans of the original Pokemon games and newer games, too!
+10	Ditto As Pikachu	2000	/images/pikachu/ditto.png	Ditto As Pikachu Plush - 7 In.	This Ditto plush is pretending to be Pikachu! With embroidered mouth and eyes, this is some super-sweet plush!
+11	Ditto Squishy Plush	4000	/images/pikachu/ditto-orig.png	Ditto Squishy Plush - 14.5 In	Boasting a ton of squishy squooshiness, this Ditto Squishy Plush is ready to hug! With classic tiny eyes and Ditto's cheerful look, this would be the only plush you need - if only it would use Transform! Like all the Squishy Plush from Pok�mon Center, this plush uses heavier, denser plush material for an added level of squishiness!
+12	Mimikyu Poke Plush	4500	/images/pikachu/mimikyu.png	Mimikyu Poke Plush - 22.5 In.	Mimikyu's a lonely Pokemon that just wants to be loved, and this jumbo-size Poke Plush version is no exception! A bendable neck lets you display Mimikyu in different poses - keep it upright in its Disguised Form, or tilt its head over to showcase its Busted Form. Either way, Mimikyu is just happy to have a friend...won't you give it a hug?
 \.
 
 
@@ -289,7 +294,7 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 175, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 177, true);
 
 
 --
