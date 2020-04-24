@@ -6,3 +6,7 @@ img {
 .pointer {
   cursor: pointer;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+}
