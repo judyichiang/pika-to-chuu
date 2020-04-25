@@ -45,9 +45,7 @@ img {
   background-color: #F6D552;
   color: black;
 }
-/* .disclaimer-message button.exit-modal {
-  margin-top: 15px;
-} */
+
 .disclaimer-message .contents {
   max-width: 80%;
   font-size: 1.5rem;

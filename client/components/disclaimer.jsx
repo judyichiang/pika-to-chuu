@@ -33,7 +33,7 @@ export default class Disclaimer extends React.Component {
     if (this.props.modalView) {
       return '';
     } else {
-      return 'hidden';
+      return 'invisible';
     }
   }
 
@@ -42,7 +42,7 @@ export default class Disclaimer extends React.Component {
     if (this.state.checkBoxPrompt) {
       return '';
     } else {
-      return 'hidden';
+      return 'invisible';
     }
   }
 
