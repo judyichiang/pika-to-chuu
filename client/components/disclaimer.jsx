@@ -1,36 +1,82 @@
-// import React from 'react';
+import React from 'react';
 
-// export default class Disclaimer extends React.Component {
-//   constructor(props) {
-//     super(props);
+export default class Disclaimer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalAccept: false,
+      checkBoxPrompt: false
+    };
+    this.handleAccept = this.handleAccept.bind(this);
+    this.handleCloseButton = this.handleCloseButton.bind(this);
+  }
 
-//   }
+  handleAccept() {
+    this.setState({
+      modalAccept: !this.state.modalAccept
+    });
+  }
 
-//   render() {
+  handleCloseButton() {
+    event.preventDefault();
+    if (this.state.modalAccept) {
+      this.props.setModalView();
+      return;
+    }
+    this.setState({
+      checkBoxPrompt: true
+    });
+  }
 
-//     return (
+  isModalVisible() {
+    return this.props.modalView ? '' : 'hidden';
+  }
 
-//       //  Modal
-//       <div className="modal fade" id="myModal" role="dialog">
-//         <div className="modal-dialog">
+  isCheckPromptVisible() {
+    return this.state.checkBoxPrompt ? '' : 'hidden';
+  }
 
-//           {/* Modal Content */}
-//           <div className="modal-content">
-//             <div className="modal-header">
-//               <h4 className="modal-title">Welcome</h4>
-//             </div>
-//             <div className="modal-body"></div>
-//             <p>Disclaimer stuff</p>
-//           </div>
-//           <div className="modal-footer">
-//             <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-//           </div>
+  promptVisual() {
+    if (this.state.modalAccept) {
+      return (
+        <>
+          <i className="fas fa-check" />
+          <small className="go">Please proceed!</small>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <i className="fas fa-times" />
+          <small>Please indicate that you accept the Terms and Conditions!</small>
+        </>
+      );
+    }
+  }
 
-//         </div>
-//       </div>
+  render() {
 
-//     // -------------------
-//     );
-//   }
+    const modalView = this.isModalVisible();
+    const checkBoxPrompt = this.isCheckPromptVisible();
+    return (
+      <div className={`${modalView} disclaimer container-fluid`}>
+        <div className="disclaimer-message">
+          <div className="contents">
+            <p>Contents</p>
+          </div>
+          <div className="form-check">
+            <input type="checkbox" className="form-check-input" id="accept" onClick={this.handleAccept} />
+            <label htmlFor="accept" className="form-check-label check-text">I accept that this website is for demonstration purposes only and no real purchases will be made. </label>
+          </div>
+          <div className={`d-flex ${checkBoxPrompt}`}>
+            {this.promptVisual()}
+          </div>
+          <button type="button" className="btn btn-secondary exit-modal" data-dismiss="modal" aria-label="Close" onClick={this.handleCloseButton}>Accept</button>
+        </div>
 
-// }
+      </div>
+      // -------------------
+    );
+  }
+
+}
