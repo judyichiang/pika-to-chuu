@@ -29,7 +29,6 @@ export default class Disclaimer extends React.Component {
   }
 
   isModalVisible() {
-    // return this.props.modalView ? '' : 'hidden';
     if (this.props.modalView) {
       return '';
     } else {
@@ -38,7 +37,6 @@ export default class Disclaimer extends React.Component {
   }
 
   isCheckPromptVisible() {
-    // return this.state.checkBoxPrompt ? '' : 'hidden';
     if (this.state.checkBoxPrompt) {
       return '';
     } else {
@@ -74,7 +72,7 @@ export default class Disclaimer extends React.Component {
         <div className="disclaimer-message">
           <div className="contents">
             <p className="modal-text">
-              This is a full stack Node.js and React.js E-commerce website that was created strictly for demonstrational purposes.
+              This is a full stack content management system and e-Commerce website that was created strictly for demonstrational purposes.
               No real purchases can be made here, and any actual personal information should at no time be entered onto this site.
 
             </p>
