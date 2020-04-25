@@ -14,11 +14,11 @@ img {
 /* Disclaime Modal */
 
 .modal-text {
-  font-size: 1em;
+  font-size: 18px;
 }
 
 .pokemon {
-  font-size: small;
+  font-size: x-small;
 }
 
 .disclaimer {
@@ -45,11 +45,9 @@ img {
   background-color: #F6D552;
   color: black;
 }
-.disclaimer-message button.exit-modal {
-  width: 50%;
-  font-size: 2rem;
-  margin-top: 10px;
-}
+/* .disclaimer-message button.exit-modal {
+  margin-top: 15px;
+} */
 .disclaimer-message .contents {
   max-width: 80%;
   font-size: 1.5rem;
@@ -61,7 +59,7 @@ img {
 
 @media only screen and (max-width: 1300px) {
   .pokemon {
-  font-size: x-small;
+  font-size: xx-small;
   }
   .disclaimer-message .contents {
     font-size: 1.25rem;
@@ -74,7 +72,7 @@ img {
 
 @media only screen and (max-width: 900px) {
   .pokemon {
-  font-size: x-small;
+  font-size: xx-small;
   }
   .disclaimer-message .contents {
     font-size: 1.15rem;
@@ -87,7 +85,7 @@ img {
 
 @media only screen and (max-width: 767.95px) {
     .pokemon {
-  font-size: x-small;
+  font-size: xx-small;
   }
   .disclaimer .disclaimer-message {
     height: 60%;
@@ -107,7 +105,7 @@ img {
 
 @media only screen and (max-height: 420px) {
     .pokemon {
-  font-size: x-small;
+  font-size: xx-small;
   }
   .disclaimer .disclaimer-message {
     height: 80%;

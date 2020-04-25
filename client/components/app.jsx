@@ -12,8 +12,8 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: { name: 'catalog', params: {} },
-      cart: [],
-      modalView: true
+      modalView: true,
+      cart: []
     };
     this.setModalView = this.setModalView.bind(this);
     this.setView = this.setView.bind(this);

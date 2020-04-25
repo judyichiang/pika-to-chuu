@@ -11,13 +11,13 @@ export default class Disclaimer extends React.Component {
     this.handleCloseButton = this.handleCloseButton.bind(this);
   }
 
-  handleAccept(event) {
-    this.setState({
-      modalAccept: true
-    });
+  handleAccept() {
+    this.setState(state => ({
+      modalAccept: !state.modalAccept
+    }));
   }
 
-  handleCloseButton(event) {
+  handleCloseButton() {
     event.preventDefault();
     if (this.state.modalAccept) {
       this.props.setModalView();
@@ -29,27 +29,38 @@ export default class Disclaimer extends React.Component {
   }
 
   isModalVisible() {
-    return this.props.modalView ? '' : 'hidden';
+    // return this.props.modalView ? '' : 'hidden';
+    if (this.props.modalView) {
+      return '';
+    } else {
+      return 'hidden';
+    }
   }
 
   isCheckPromptVisible() {
-    return this.state.checkBoxPrompt ? '' : 'hidden';
+    // return this.state.checkBoxPrompt ? '' : 'hidden';
+    if (this.state.checkBoxPrompt) {
+      return '';
+    } else {
+      return 'hidden';
+    }
   }
 
   promptVisual() {
     if (this.state.modalAccept) {
       return (
-        <>
+        <div>
           <i className="fas fa-check" />
           <small className="go">Please proceed!</small>
-        </>
+        </div>
+
       );
     } else {
       return (
-        <>
-          <i className="fas fa-times" />
-          <small>Please indicate that you accept the Terms and Conditions!</small>
-        </>
+        <div>
+          <small>Please acknowledge terms to proceed.</small>
+        </div>
+
       );
     }
   }
@@ -62,18 +73,22 @@ export default class Disclaimer extends React.Component {
       <div className={`${modalView} disclaimer container-fluid`}>
         <div className="disclaimer-message">
           <div className="contents">
-            <p className="modal-text">Hi</p>
-            <p className="text-center text-danger mb-5 pokemon">© 2020 Pokémon. © 1995 - 2020 Nintendo/Creatures Inc./GAME FREAK inc. Pokémon and Pokémon character names are trademarks
+            <p className="modal-text">
+              This is a full stack Node.js and React.js E-commerce website that was created strictly for demonstrational purposes.
+              No real purchases can be made here, and any actual personal information should at no time be entered onto this site.
+
+            </p>
+            <p className="text-center mb-2 pokemon">© 2020 Pokémon. © 1995 - 2020 Nintendo/Creatures Inc./GAME FREAK inc. Pokémon and Pokémon character names are trademarks
     of Nintendo. Trademarks are property of respective owners.</p>
           </div>
           <div className="form-check">
             <input type="checkbox" className="form-check-input" id="accept" onClick={this.handleAccept} />
-            <label htmlFor="accept" className="form-check-label check-text">I accept that this website is for demonstration purposes only and no real purchases will be made. </label>
+            <label htmlFor="accept" className="form-check-label check-text">I have read and agree to the Terms</label>
           </div>
           <div className={`d-flex ${checkBoxPrompt}`}>
             {this.promptVisual()}
           </div>
-          <button type="button" className="btn btn-secondary exit-modal" data-dismiss="modal" aria-label="Close" onClick={this.handleCloseButton}>Accept</button>
+          <button type="button" className="btn btn-danger mt-3 w-75 exit-modal" data-dismiss="modal" onClick={this.handleCloseButton}>Enter</button>
         </div>
 
       </div>
