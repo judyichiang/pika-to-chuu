@@ -170,9 +170,9 @@ app.delete('/api/cart/:cartItemId', (req, res, next) => {
   db.query(sql, params)
     .then(result => {
       if (!result.rows[0]) {
-        res.status(404).json({ error: `Cannot find cartItemId ${cartItemId}` });
+        return res.status(404).json({ error: `Cannot find cartItemId ${cartItemId}` });
       } else {
-        res.status(204).json(`cartItemId ${cartItemId} has been removed`);
+        return res.status(204).json(`cartItemId ${cartItemId} has been removed`);
       }
     })
 
