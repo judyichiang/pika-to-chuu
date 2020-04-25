@@ -1,6 +1,4 @@
 // import React from 'react';
-// import { render } from 'react-dom';
-// import { HotModuleReplacementPlugin } from 'webpack';
 
 // export default class Disclaimer extends React.Component {
 //   constructor(props) {
@@ -9,6 +7,7 @@
 //   }
 
 //   render() {
+
 //     return (
 
 //       //  Modal
