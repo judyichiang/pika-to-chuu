@@ -12,8 +12,10 @@ export default class App extends React.Component {
       message: null,
       isLoading: true,
       view: { name: 'catalog', params: {} },
-      cart: []
+      cart: [],
+      modalView: true
     };
+    this.setModalView = this.setModalView.bind(this);
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
@@ -27,6 +29,12 @@ export default class App extends React.Component {
       .then(data => this.setState({ message: data.message || data.error }))
       .catch(err => this.setState({ message: err.message }))
       .finally(() => this.setState({ isLoading: false }));
+  }
+
+  setModalView() {
+    this.setState({
+      modalView: false
+    });
   }
 
   setView(name, params) {
@@ -89,6 +97,8 @@ export default class App extends React.Component {
           />
           <ProductList
             setView={this.setView}
+            setModalView={this.setModalView}
+            modalView={this.state.modalView}
           />
         </div>
       );
@@ -98,7 +108,7 @@ export default class App extends React.Component {
       return (
         <div className="mb-2">
           <Header name="Pika-to-Chuu"
-            cartItemCount ={this.state.cart.length}
+            cartItemCount={this.state.cart.length}
             setView={this.setView} />
           <ProductDetails
             setView={this.setView}
@@ -130,7 +140,7 @@ export default class App extends React.Component {
             cartItemCount={this.state.cart.length}
             setView={this.setView} />
           <CheckoutForm
-            onSubmit ={this.placeOrder}
+            onSubmit={this.placeOrder}
             cartItem={this.state.cart}
             setView={this.setView}
           />

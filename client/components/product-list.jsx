@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductionListItem from './product-list-item';
+import Disclaimer from './disclaimer';
 
 export default class ProductList extends React.Component {
   constructor(props) {
@@ -41,7 +42,13 @@ export default class ProductList extends React.Component {
 
     return (
       <div className="row m-0 p-5">
-        <div className="d-flex flex-wrap justify-content-center">{data}</div>
+        <div className="d-flex flex-wrap justify-content-center">
+          {data}
+          <Disclaimer
+            setModalView={this.props.setModalView}
+            modalView={this.props.modalView}
+          />
+        </div>
       </div>
     );
   }
