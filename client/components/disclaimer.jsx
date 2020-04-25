@@ -11,13 +11,13 @@ export default class Disclaimer extends React.Component {
     this.handleCloseButton = this.handleCloseButton.bind(this);
   }
 
-  handleAccept() {
+  handleAccept(event) {
     this.setState({
-      modalAccept: !this.state.modalAccept
+      modalAccept: true
     });
   }
 
-  handleCloseButton() {
+  handleCloseButton(event) {
     event.preventDefault();
     if (this.state.modalAccept) {
       this.props.setModalView();
@@ -62,7 +62,9 @@ export default class Disclaimer extends React.Component {
       <div className={`${modalView} disclaimer container-fluid`}>
         <div className="disclaimer-message">
           <div className="contents">
-            <p>Contents</p>
+            <p className="modal-text">Hi</p>
+            <p className="text-center text-danger mb-5 pokemon">© 2020 Pokémon. © 1995 - 2020 Nintendo/Creatures Inc./GAME FREAK inc. Pokémon and Pokémon character names are trademarks
+    of Nintendo. Trademarks are property of respective owners.</p>
           </div>
           <div className="form-check">
             <input type="checkbox" className="form-check-input" id="accept" onClick={this.handleAccept} />

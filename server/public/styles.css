@@ -11,4 +11,115 @@ img {
   transform: translateY(-5px);
 }
 
-.disclaimer-message { }
+/* Disclaime Modal */
+
+.modal-text {
+  font-size: 1em;
+}
+
+.pokemon {
+  font-size: small;
+}
+
+.disclaimer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.7);
+}
+.disclaimer .disclaimer-message {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  height: 50%;
+  width: 50%;
+  text-align: center;
+  background-color: #F6D552;
+  color: black;
+}
+.disclaimer-message button.exit-modal {
+  width: 50%;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+.disclaimer-message .contents {
+  max-width: 80%;
+  font-size: 1.5rem;
+  user-select: none;
+}
+.disclaimer-message .check-text {
+  color: blue;
+}
+
+@media only screen and (max-width: 1300px) {
+  .pokemon {
+  font-size: x-small;
+  }
+  .disclaimer-message .contents {
+    font-size: 1.25rem;
+  }
+  .disclaimer-message button.exit-modal {
+    width: 35%;
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .pokemon {
+  font-size: x-small;
+  }
+  .disclaimer-message .contents {
+    font-size: 1.15rem;
+  }
+  .disclaimer-message button.exit-modal {
+    width: 30%;
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-width: 767.95px) {
+    .pokemon {
+  font-size: x-small;
+  }
+  .disclaimer .disclaimer-message {
+    height: 60%;
+    width: 85%;
+  }
+  .disclaimer-message .contents {
+    font-size: 1rem;
+  }
+  .disclaimer-message .check-text {
+    font-size: 0.85rem;
+  }
+  .disclaimer-message button.exit-modal {
+    width: 30%;
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-height: 420px) {
+    .pokemon {
+  font-size: x-small;
+  }
+  .disclaimer .disclaimer-message {
+    height: 80%;
+  }
+  .disclaimer-message .contents {
+    font-size: 0.95rem;
+  }
+  .disclaimer-message .check-text {
+    font-size: 0.85rem;
+  }
+  .disclaimer-message button.exit-modal {
+    width: 28%;
+    font-size: 1.10rem;
+  }
+}
