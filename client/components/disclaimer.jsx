@@ -47,15 +47,15 @@ export default class Disclaimer extends React.Component {
   promptVisual() {
     if (this.state.modalAccept) {
       return (
-        <div>
+        <div className="text-success">
           <i className="fas fa-check" />
-          <small className="go">Please proceed!</small>
+          <small>Please proceed!</small>
         </div>
 
       );
     } else {
       return (
-        <div>
+        <div className="text-danger">
           <small>Please acknowledge terms to proceed.</small>
         </div>
 
