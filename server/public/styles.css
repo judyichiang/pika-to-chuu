@@ -134,7 +134,9 @@ img {
     font-size: x-small;
   }
   .disclaimer-message button.exit-modal {
-    width: 28%;
     font-size: 1.10rem;
+    margin-bottom: 0;
+    width: 20%;
+
   }
 }
