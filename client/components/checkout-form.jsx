@@ -112,7 +112,7 @@ export default class CheckoutForm extends React.Component {
           <div className="col-md-4 d-md-block d-none cart-sum">
             <p>Cart Summary</p>
             <div>
-              <div className="row p-4">{data}</div>
+              <div className="row p-4 hide-del">{data}</div>
             </div>
           </div>
 

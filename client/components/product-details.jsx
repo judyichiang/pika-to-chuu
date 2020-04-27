@@ -7,6 +7,7 @@ export default class ProductDetails extends React.Component {
     this.state = {
       product: null
     };
+    this.deletebutton = this.deletebutton.bind(this);
   }
 
   componentDidMount() {
@@ -21,6 +22,8 @@ export default class ProductDetails extends React.Component {
       })
       .catch(err => console.error(err));
   }
+
+  deletebutton() {}
 
   render() {
     if (this.state.product) {
