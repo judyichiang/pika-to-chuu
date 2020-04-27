@@ -29,7 +29,7 @@ export default class ProductDetails extends React.Component {
           <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
             &lt; Back to Catalog
           </div>
-          <div className="row p-3">
+          <div className="row px-3 pt-5">
 
             <img className="col-xl-6 col-lg-5 col-md-6 col-xs-12 col-sm-6" src={this.state.product.image} alt={this.state.product.name} />
 

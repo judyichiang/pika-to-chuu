@@ -6,7 +6,7 @@ export default function CartSummaryItem(props) {
     <div className="card m-3">
       <div className="row no-gutters">
         <div className="col-md-4">
-          <img className="card-img" src={props.image} alt={props.name} />
+          <img className="card-img mt-3" src={props.image} alt={props.name} />
         </div>
         <div className="col-md-8">
 
