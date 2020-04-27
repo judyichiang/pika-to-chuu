@@ -232,6 +232,11 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price, qty, total) FROM stdin;
 179	86	2	2500	\N	\N
+186	86	2	2500	\N	\N
+191	88	3	2500	\N	\N
+193	89	3	2500	\N	\N
+194	90	2	2500	\N	\N
+195	90	2	2500	\N	\N
 \.
 
 
@@ -248,6 +253,10 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 84	2020-04-23 01:14:45.574974-07
 85	2020-04-23 15:40:47.225724-07
 86	2020-04-23 21:30:22.034797-07
+87	2020-04-23 22:32:24.456151-07
+88	2020-04-24 17:24:17.262058-07
+89	2020-04-25 02:10:18.206448-07
+90	2020-04-26 23:56:02.610084-07
 \.
 
 
@@ -259,6 +268,7 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 1	43	Jarvis	89	123	2020-03-15 17:02:33.172443-07
 2	43	Jarvis	89	123	2020-03-15 17:12:51.971641-07
 39	83	ff	ff	ff	2020-04-23 00:55:01.608217-07
+40	86	Peter Parker	3843848344	Bronx	2020-04-23 22:26:09.470388-07
 \.
 
 
@@ -277,7 +287,7 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 8	Mega Audino Cape Pikachu	2000	/images/pikachu/Mega_audino.png	Mega Audino Cape Pikachu Poke Plush - 8.5 In.	Cute as a button, this Pikachu is all dressed up in its Mega Audino costume! With lots of curliques and swirls and a pink-lined cape, this costume is round and sweet, with bonus swirls on the ears and a puffball tail. Supercute costume, Pikachu! A Pokemon Center original design.
 9	Boss Giovanni Costume Pikachu	2000	/images/pikachu/team _rocket_boss.png	Boss Costume Collection: Team Rocket Giovanni Costume Pikachu Poke Plush - 9 In.	That evil grin, that rainbow "R" logo - looks familiar! Yes, this Pikachu plush is all dressed up as Team Rocket leader Giovanni, the original Pokemon villain from Kanto who made a memorable reappearance in the Alola region! Team Rocket is going to see its plans come together someday, so watch out! This plush makes a great gift for fans of the original Pokemon games and newer games, too!
 10	Ditto As Pikachu	2000	/images/pikachu/ditto.png	Ditto As Pikachu Plush - 7 In.	This Ditto plush is pretending to be Pikachu! With embroidered mouth and eyes, this is some super-sweet plush!
-11	Ditto Squishy Plush	4000	/images/pikachu/ditto-orig.png	Ditto Squishy Plush - 14.5 In	Boasting a ton of squishy squooshiness, this Ditto Squishy Plush is ready to hug! With classic tiny eyes and Ditto's cheerful look, this would be the only plush you need - if only it would use Transform! Like all the Squishy Plush from Pok�mon Center, this plush uses heavier, denser plush material for an added level of squishiness!
+11	Ditto Squishy Plush	4000	/images/pikachu/ditto-orig.png	Ditto Squishy Plush - 14.5 In	Boasting a ton of squishy squooshiness, this Ditto Squishy Plush is ready to hug! With classic tiny eyes and Ditto's cheerful look, this would be the only plush you need - if only it would use Transform! Like all the Squishy Plush from Pokemon Center, this plush uses heavier, denser plush material for an added level of squishiness!
 12	Mimikyu Poke Plush	4500	/images/pikachu/mimikyu.png	Mimikyu Poke Plush - 22.5 In.	Mimikyu's a lonely Pokemon that just wants to be loved, and this jumbo-size Poke Plush version is no exception! A bendable neck lets you display Mimikyu in different poses - keep it upright in its Disguised Form, or tilt its head over to showcase its Busted Form. Either way, Mimikyu is just happy to have a friend...won't you give it a hug?
 \.
 
@@ -286,21 +296,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 179, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 195, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 86, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 90, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 39, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 40, true);
 
 
 --
