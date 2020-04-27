@@ -11,7 +11,7 @@ img {
   transform: translateY(-5px);
 }
 
-/* Disclaime Modal */
+/* Intro Modal */
 
 .modal-text {
   font-size: 1em;
@@ -19,6 +19,10 @@ img {
 
 .pokemon {
   font-size: x-small;
+}
+
+.card-short{
+  font-size: small;
 }
 
 .disclaimer {
@@ -146,4 +150,15 @@ img {
     width: 20%;
 
   }
+}
+
+@media only screen and (max-width: 1200px) {
+  .cart-sum{
+    display: none!important;
+  }
+  .sizing{
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 }
