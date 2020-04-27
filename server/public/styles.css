@@ -39,11 +39,13 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 50px;
-  height: 50%;
   width: 50%;
   text-align: center;
-  background-color: #F6D552;
   color: black;
+}
+
+.modal-content{
+  background-color: rgb(233,202,61) ;
 }
 
 .disclaimer-message .contents {

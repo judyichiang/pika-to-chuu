@@ -70,23 +70,29 @@ export default class Disclaimer extends React.Component {
     return (
       <div className={`${modalView} disclaimer container-fluid`}>
         <div className="disclaimer-message">
-          <div className="contents">
-            <p className="modal-text">
+          <div className="modal-content">
+            <p className="modal-text mt-5 mx-3 ">
               This is a full stack content management system and e-Commerce website that was created strictly for demonstrational purposes.
               No real purchases can be made here, and any actual personal information should at no time be entered onto this site.
 
             </p>
-            <p className="text-center mb-2 pokemon">© 2020 Pokémon. © 1995 - 2020 Nintendo/Creatures Inc./GAME FREAK inc. Pokémon and Pokémon character names are trademarks
+            <p className="text-center mb-2 mx-3 pokemon">© 2020 Pokémon. © 1995 - 2020 Nintendo/Creatures Inc./GAME FREAK inc. Pokémon and Pokémon character names are trademarks
     of Nintendo. Trademarks are property of respective owners.</p>
+
+            <div className="form-check">
+              <input type="checkbox" className="form-check-input" id="accept" onClick={this.handleAccept} />
+              <label htmlFor="accept" className="form-check-label check-text">I have read and agree to the Terms
+                <div className={`d-flex ${checkBoxPrompt}`}>
+                  {this.promptVisual()}
+                </div>
+              </label>
+            </div>
+
+            <div className="text-center">
+              <button type="button" className="btn btn-danger mt-2 mb-3 w-75 exit-modal justify-content-center" data-dismiss="modal" onClick={this.handleCloseButton}>Enter</button>
+            </div>
+
           </div>
-          <div className="form-check">
-            <input type="checkbox" className="form-check-input" id="accept" onClick={this.handleAccept} />
-            <label htmlFor="accept" className="form-check-label check-text">I have read and agree to the Terms</label>
-          </div>
-          <div className={`d-flex ${checkBoxPrompt}`}>
-            {this.promptVisual()}
-          </div>
-          <button type="button" className="btn btn-danger mt-3 w-75 exit-modal" data-dismiss="modal" onClick={this.handleCloseButton}>Enter</button>
         </div>
 
       </div>
