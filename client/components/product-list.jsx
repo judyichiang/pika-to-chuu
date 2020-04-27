@@ -42,7 +42,7 @@ export default class ProductList extends React.Component {
 
     return (
       <div className="row m-0 p-5">
-        <div className="d-flex flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-content-center intro">
           {data}
           <Disclaimer
             setModalView={this.props.setModalView}

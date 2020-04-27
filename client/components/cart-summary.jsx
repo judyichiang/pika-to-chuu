@@ -36,7 +36,7 @@ export default function CartSummary(props) {
           <div className="pointer" onClick={() => props.setView('catalog', {})}>
             &lt; Back to Catalog
           </div>
-          <div>
+          <div className="mt-3">
             <div className="row p-4">{data}</div>
           </div>
           <div className="row">
