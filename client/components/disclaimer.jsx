@@ -86,7 +86,7 @@ export default class Disclaimer extends React.Component {
           <div className={`d-flex ${checkBoxPrompt}`}>
             {this.promptVisual()}
           </div>
-          <button type="button" className="btn btn-danger exit-modal" data-dismiss="modal" onClick={this.handleCloseButton}>Enter</button>
+          <button type="button" className="btn btn-danger mt-3 w-75 exit-modal" data-dismiss="modal" onClick={this.handleCloseButton}>Enter</button>
         </div>
 
       </div>
