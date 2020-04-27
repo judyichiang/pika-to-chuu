@@ -14,7 +14,7 @@ img {
 /* Disclaime Modal */
 
 .modal-text {
-  font-size: 18px;
+  font-size: 1em;
 }
 
 .pokemon {
@@ -53,6 +53,11 @@ img {
 }
 .disclaimer-message .check-text {
   color: blue;
+}
+
+.disclaimer-message button.exit-modal{
+  width: 50%;
+  margin-top: 8px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -117,5 +122,26 @@ img {
   .disclaimer-message button.exit-modal {
     width: 28%;
     font-size: 1.10rem;
+  }
+}
+
+@media only screen and (max-height: 360px) {
+    .pokemon {
+  font-size: xx-small;
+  }
+  .disclaimer .disclaimer-message {
+    height: 80%;
+  }
+  .disclaimer-message .contents {
+    font-size: x-small;
+  }
+  .disclaimer-message .check-text {
+    font-size: x-small;
+  }
+  .disclaimer-message button.exit-modal {
+    font-size: 1.10rem;
+    margin-bottom: 0;
+    width: 20%;
+
   }
 }
