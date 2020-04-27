@@ -11,6 +11,11 @@ img {
   transform: translateY(-5px);
 }
 
+.hide-del .btn {
+  display: none;
+
+}
+
 /* Intro Modal */
 
 .modal-text {
