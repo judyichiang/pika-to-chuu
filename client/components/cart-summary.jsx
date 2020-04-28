@@ -20,6 +20,8 @@ export default function CartSummary(props) {
         price={product.price}
         image={product.image}
         shortDescription={product.shortDescription}
+        deleteItem={props.deleteItem}
+        onChange={() => props.deleteItem(product.cartItemId)}
       />
     );
     const array = props.cartItem;
