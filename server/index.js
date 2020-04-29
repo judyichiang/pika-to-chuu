@@ -64,6 +64,7 @@ app.get('/api/cart', (req, res, next) => {
   const sql = `
   select "c"."cartItemId",
        "c"."price",
+       "c"."quantity",
        "p"."productId",
        "p"."image",
        "p"."name",
@@ -124,11 +125,13 @@ app.post('/api/cart', (req, res, next) => {
       const price = result3.price;
 
       const sql = `
-      insert into "cartItems" ("cartId", "productId", "price")
-        values ($1, $2, $3)
+      insert into "cartItems" ("cartId", "productId", "price", "quantity")
+        values ($1, $2, $3, $4)
+        on conflict ("cartId", "productId") DO UPDATE
+        set "quantity" = "cartItems"."quantity" + 1
       returning "cartItemId"
       `;
-      const val = [result3.cartId, productId, price];
+      const val = [result3.cartId, productId, price, 1];
 
       return db.query(sql, val)
         .then(
@@ -139,6 +142,7 @@ app.post('/api/cart', (req, res, next) => {
       const sql = `
       select "c"."cartItemId",
         "c"."price",
+        "c"."quantity",
         "p"."productId",
         "p"."image",
         "p"."name",
