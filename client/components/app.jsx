@@ -88,42 +88,42 @@ export default class App extends React.Component {
     // ----------------------
   }
 
-  deleteItem(cartItemId) {
-    function filterCart(cart) {
-      return cart.cartItemId !== cartItemId;
-    }
-    fetch(`/api/cart/${cartItemId}`, { method: 'DELETE' })
-      .then(response => {
-        return response;
-      })
-      .then(data => {
-        this.setState({
-          cart: this.state.cart.filter(filterCart)
-        });
-      })
-      .catch(err => console.error(err));
-  }
-
-  // deleteItem(id) {
-  //   const idSelected = this.state.cart.findIndex(
-  //     el => el.cartItemId === id
-  //   );
-
-  //   fetch(`/api/cart/${id}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   })
-  //     .then(() => {
-  //       const newArr = [...this.state.cart];
-  //       newArr.splice(idSelected, 1);
+  // deleteItem(cartItemId) {
+  //   function filterCart(cart) {
+  //     return cart.cartItemId !== cartItemId;
+  //   }
+  //   fetch(`/api/cart/${cartItemId}`, { method: 'DELETE' })
+  //     .then(response => {
+  //       return response;
+  //     })
+  //     .then(data => {
   //       this.setState({
-  //         cart: newArr
+  //         cart: this.state.cart.filter(filterCart)
   //       });
   //     })
   //     .catch(err => console.error(err));
   // }
+
+  deleteItem(id) {
+    const idSelected = this.state.cart.findIndex(
+      el => el.cartItemId === id
+    );
+
+    fetch(`/api/cart/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(() => {
+        const newArr = [...this.state.cart];
+        newArr.splice(idSelected, 1);
+        this.setState({
+          cart: newArr
+        });
+      })
+      .catch(err => console.error(err));
+  }
 
   render() {
     if (this.state.view.name === 'catalog') {
