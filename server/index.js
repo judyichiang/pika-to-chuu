@@ -157,27 +157,70 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.delete('/api/cart/:cartItemId', (req, res, next) => {
-  const { cartItemId } = req.params;
-  const params = [cartItemId];
+app.patch('/api/cart', (req, res, next) => {
+  const { cartId } = req.session;
+  const { quantity, productId } = req.body;
+  if (!cartId) { return res.status(400).json({ error: 'missing or invalid cartId' }); }
+  if (!quantity) { return res.status(400).json({ error: 'missing or invalid quantity' }); }
+  if (!parseInt(productId, 10) || productId <= 0) {
+    return res.status(400).json({ error: 'productId must be a positive integer' });
+  }
 
-  const sql = `
-    DELETE FROM "cartItems"
-    WHERE "cartItemId" = $1
-    RETURNING *
-    `;
+  // const sql = `
+  //   UPDATE "cartItems"
+  //   SET "qty"
+  // `;
 
-  db.query(sql, params)
-    .then(result => {
-      if (!result.rows[0]) {
-        return res.status(404).json({ error: `Cannot find cartItemId ${cartItemId}` });
-      } else {
-        return res.status(204).json(`cartItemId ${cartItemId} has been removed`);
-      }
-    })
-
-    .catch(err => next(err));
 });
+
+// app.delete('/api/cart/:cartItemId', (req, res, next) => {
+//   const { cartItemId } = req.params;
+//   const params = [cartItemId];
+
+//   const sql = `
+//     DELETE FROM "cartItems"
+//     WHERE "cartItemId" = $1
+//     RETURNING *
+//     `;
+
+//   db.query(sql, params)
+//     .then(result => {
+//       if (!result.rows[0]) {
+//         return res.status(404).json({ error: `Cannot find cartItemId ${cartItemId}` });
+//       } else {
+//         return res.status(204).json(`cartItemId ${cartItemId} has been removed`);
+//       }
+//     })
+
+//     .catch(err => next(err));
+// });
+
+// ----------------------- remove item from cart -----------------------
+
+// app.delete('/api/cart/', (req, res, next) => {
+//   const { cartId } = req.session;
+//   const { productId } = req.body;
+
+//   const sql = `
+//     DELETE FROM "cartItems"
+//     WHERE "cartItemId" = $1
+//     AND "productId" = $2
+//     RETURNING *
+//     `;
+
+//     const val = [cartId, productId];
+
+//   db.query(sql, val)
+//     .then(result => {
+//       if (!result.rows.length) {
+//         return res.status(404).json({ error: `Cannot find cartItemId ${cartItemId}` });
+//       } else {
+//         return res.status(204).json(result.rows[0]);
+//       }
+//     })
+
+//     .catch(err => next(err));
+// });
 
 app.post('/api/orders', (req, res, next) => {
 

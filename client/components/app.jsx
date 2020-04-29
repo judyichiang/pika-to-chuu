@@ -89,7 +89,7 @@ export default class App extends React.Component {
   }
 
   // deleteItem(cartItemId) {
-  //   function filterCart(cart) {
+  //   function updateCart(cart) {
   //     return cart.cartItemId !== cartItemId;
   //   }
   //   fetch(`/api/cart/${cartItemId}`, { method: 'DELETE' })
@@ -98,31 +98,30 @@ export default class App extends React.Component {
   //     })
   //     .then(data => {
   //       this.setState({
-  //         cart: this.state.cart.filter(filterCart)
+  //         cart: this.state.cart.filter(updateCart)
   //       });
   //     })
   //     .catch(err => console.error(err));
   // }
 
-  deleteItem(id) {
-    const idSelected = this.state.cart.findIndex(
-      el => el.cartItemId === id
-    );
+  deleteItem(cartItemId) {
 
-    fetch(`/api/cart/${id}`, {
+    function updateCart(cart) {
+      return cart.cartItemId !== cartItemId;
+    }
+
+    fetch(`/api/cart/${cartItemId}`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: { 'Content-Type': 'application/json' }
     })
-      .then(() => {
-        const newArr = [...this.state.cart];
-        newArr.splice(idSelected, 1);
-        this.setState({
-          cart: newArr
-        });
+      .then(response => {
+        return response;
       })
-      .catch(err => console.error(err));
+      .then(data => {
+        this.setState({
+          cart: this.state.cart.filter(updateCart)
+        });
+      });
   }
 
   render() {
