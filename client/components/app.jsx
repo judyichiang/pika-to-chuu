@@ -104,6 +104,27 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  // deleteItem(id) {
+  //   const idSelected = this.state.cart.findIndex(
+  //     el => el.cartItemId === id
+  //   );
+
+  //   fetch(`/api/cart/${id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //     .then(() => {
+  //       const newArr = [...this.state.cart];
+  //       newArr.splice(idSelected, 1);
+  //       this.setState({
+  //         cart: newArr
+  //       });
+  //     })
+  //     .catch(err => console.error(err));
+  // }
+
   render() {
     if (this.state.view.name === 'catalog') {
       return (
