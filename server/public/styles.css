@@ -7,13 +7,12 @@ img {
   cursor: pointer;
 }
 
-.card:hover {
+.intro .card:hover {
   transform: translateY(-5px);
 }
 
 .hide-del .btn {
   display: none;
-
 }
 
 /* Intro Modal */

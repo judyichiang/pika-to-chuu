@@ -20,6 +20,8 @@ export default function CartSummary(props) {
         price={product.price}
         image={product.image}
         shortDescription={product.shortDescription}
+        deleteItem={props.deleteItem}
+        onChange={() => props.deleteItem(product.cartItemId)}
       />
     );
     const array = props.cartItem;
@@ -36,7 +38,7 @@ export default function CartSummary(props) {
           <div className="pointer" onClick={() => props.setView('catalog', {})}>
             &lt; Back to Catalog
           </div>
-          <div>
+          <div className="mt-3">
             <div className="row p-4">{data}</div>
           </div>
           <div className="row">
