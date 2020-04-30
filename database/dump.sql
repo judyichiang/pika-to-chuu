@@ -74,8 +74,7 @@ CREATE TABLE public."cartItems" (
     "cartItemId" integer NOT NULL,
     "cartId" integer NOT NULL,
     "productId" integer NOT NULL,
-    price integer NOT NULL,
-    qty integer
+    price integer NOT NULL
 );
 
 
@@ -229,11 +228,11 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 -- Data for Name: cartItems; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public."cartItems" ("cartItemId", "cartId", "productId", price, qty) FROM stdin;
-217	97	2	2500	\N
-218	97	2	2500	\N
-219	97	5	2500	\N
-220	98	6	2500	\N
+COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
+226	101	2	2500
+227	101	3	2500
+228	102	2	2500
+229	102	2	2500
 \.
 
 
@@ -242,7 +241,7 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price, qty) FROM s
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-98	2020-04-28 21:14:20.341041-07
+102	2020-04-29 16:56:38.728325-07
 \.
 
 
@@ -259,6 +258,8 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 42	96	PandaPool	565611516516516	Marvel hq	2020-04-28 20:30:11.924493-07
 43	97	Zechs	4165165165	sdffffffffffd	2020-04-28 21:13:42.30674-07
 44	98	esf	3333333333	rerw	2020-04-28 21:14:28.139631-07
+45	101	name	13131536	ok	2020-04-29 16:55:43.986548-07
+46	102	name	2222222222222	buy more	2020-04-29 16:56:53.695047-07
 \.
 
 
@@ -286,21 +287,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 220, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 229, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 98, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 102, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 44, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 46, true);
 
 
 --

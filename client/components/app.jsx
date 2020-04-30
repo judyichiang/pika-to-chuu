@@ -88,40 +88,23 @@ export default class App extends React.Component {
     // ----------------------
   }
 
-  // deleteItem(cartItemId) {
-  //   function updateCart(cart) {
-  //     return cart.cartItemId !== cartItemId;
-  //   }
-  //   fetch(`/api/cart/${cartItemId}`, { method: 'DELETE' })
-  //     .then(response => {
-  //       return response;
-  //     })
-  //     .then(data => {
-  //       this.setState({
-  //         cart: this.state.cart.filter(updateCart)
-  //       });
-  //     })
-  //     .catch(err => console.error(err));
-  // }
-
   deleteItem(cartItemId) {
-
-    function updateCart(cart) {
-      return cart.cartItemId !== cartItemId;
-    }
+    const idSelected = this.state.cart.findIndex(
+      el => el.cartItemId === cartItemId
+    );
 
     fetch(`/api/cart/${cartItemId}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })
-      .then(response => {
-        return response;
-      })
-      .then(data => {
+      .then(() => {
+        const updateCart = [...this.state.cart];
+        updateCart.splice(idSelected, 1);
         this.setState({
-          cart: this.state.cart.filter(updateCart)
+          cart: updateCart
         });
-      });
+      })
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -165,7 +148,7 @@ export default class App extends React.Component {
             cartItem={this.state.cart}
             product={this.state.view.params}
             setView={this.setView}
-            deleteItem={this.deleteItem}/>
+            deleteItem={this.deleteItem} />
         </div>
 
       );
