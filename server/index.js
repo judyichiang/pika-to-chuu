@@ -158,29 +158,44 @@ app.post('/api/cart', (req, res, next) => {
 });
 
 app.delete('/api/cart/:cartItemId', (req, res, next) => {
-  // const { cartItemId } = req.params;
-  // const params = [cartItemId];
-  const cartItemId = req.params.cartItemId;
-  const cartId = req.session.cartId;
+  const { cartItemId } = req.params;
+  const params = [cartItemId];
 
   const sql = `
     DELETE FROM "cartItems"
     WHERE "cartItemId" = $1
-    AND "cartId" =$2
     RETURNING *
     `;
 
-  const val = [cartItemId, cartId];
-
-  db.query(sql, val)
+  db.query(sql, params)
     .then(result => {
-      if (result.rowCount === 0) {
-        throw new ClientError(`Cart item id ${cartItemId} is invalid`, 400);
+      if (!result.rows[0]) {
+        return res.status(404).json({ error: `Cannot find cartItemId ${cartItemId}` });
+      } else {
+        return res.status(204).json(`cartItemId ${cartItemId} has been removed`);
       }
-      res.sendStatus(204);
     })
+
     .catch(err => next(err));
 });
+
+// app.delete('/api/cart/:cartItemId', (req, res, next) => {
+
+//   const cartItemId = req.params.cartItemId;
+
+//   const sql = `
+//   delete from "cartItems"
+//   where "cartItemId" = $1
+//   returning *
+//   `;
+
+//   db.query(sql, [cartItemId])
+//     .then(result => {
+//       const [deletedObj] = result.rows;
+//       return res.status(200).json(deletedObj);
+//     })
+//     .catch(err => next(err));
+// });
 
 app.post('/api/orders', (req, res, next) => {
 
