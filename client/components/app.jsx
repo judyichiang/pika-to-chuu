@@ -88,38 +88,6 @@ export default class App extends React.Component {
     // ----------------------
   }
 
-  // deleteItem(cartItemId) {
-  //   function updateCart(cart) {
-  //     return cart.cartItemId !== cartItemId;
-  //   }
-  //   fetch(`/api/cart/${cartItemId}`, { method: 'DELETE' })
-  //     .then(response => {
-  //       return response;
-  //     })
-  //     .then(data => {
-  //       this.setState({
-  //         cart: this.state.cart.filter(updateCart)
-  //       });
-  //     })
-  //     .catch(err => console.error(err));
-  // }
-
-  // deleteItem(cartItemId) {
-
-  //   fetch(`/api/cart/${cartItemId}`, {
-  //     method: 'DELETE',
-  //     headers: { 'Content-Type': 'application/json' }
-  //   })
-  //     .then(response => {
-  //       return response;
-  //     })
-  //     .then(data => {
-  //       this.setState({
-  //         cart: this.state.cart.filter(updateCart)
-  //       });
-  //     });
-  // }
-
   deleteItem(cartItemId) {
     const idSelected = this.state.cart.findIndex(
       el => el.cartItemId === cartItemId
@@ -127,15 +95,13 @@ export default class App extends React.Component {
 
     fetch(`/api/cart/${cartItemId}`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: { 'Content-Type': 'application/json' }
     })
       .then(() => {
-        const newArr = [...this.state.cart];
-        newArr.splice(idSelected, 1);
+        const updateCart = [...this.state.cart];
+        updateCart.splice(idSelected, 1);
         this.setState({
-          cart: newArr
+          cart: updateCart
         });
       })
       .catch(err => console.error(err));

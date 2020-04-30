@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function CartSummaryItem(props) {
+  // console.log(props.item);
   return (
     <div className="card card-body mb-2">
       <div className="row no-gutters">
@@ -12,7 +13,7 @@ export default function CartSummaryItem(props) {
           <h5 className="card-title">{props.name}</h5>
           <p className="card-subtitle text-muted">${(props.price / Math.pow(10, 2)).toFixed(2)}</p>
           <p className="card-text">{props.shortDescription}</p>
-          <button type="button" className="btn btn-danger" onClick={() => props.deleteItem(props.cartItemId)}>Delete</button>
+          <button type="button" className="btn btn-danger" onClick={() => props.deleteItem(props.item.cartItemId)}>Delete</button>
         </div>
 
       </div>

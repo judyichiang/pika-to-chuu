@@ -47,7 +47,7 @@ export default class Disclaimer extends React.Component {
   promptVisual() {
     if (this.state.modalAccept) {
       return (
-        <div className="text-success">
+        <div>
           <i className="fas fa-check" />
           <small>Please proceed!</small>
         </div>
@@ -76,8 +76,8 @@ export default class Disclaimer extends React.Component {
               No real purchases can be made here, and any actual personal information should at no time be entered onto this site.
 
             </p>
-            <p className="text-center mb-2 mx-3 pokemon">© 2020 Pokémon. © 1995 - 2020 Nintendo/Creatures Inc./GAME FREAK inc. Pokémon and Pokémon character names are trademarks
-    of Nintendo. Trademarks are property of respective owners.</p>
+            <p className="text-center mb-2 mx-3 pokemon">Pokémon and Pokémon character names are trademarks
+    of Nintendo. Trademarks are property of respective owners. © 2020 Pokémon. © 1995 - 2020 Nintendo/Creatures Inc./GAME FREAK inc. </p>
 
             <div className="form-check">
               <input type="checkbox" className="form-check-input" id="accept" onClick={this.handleAccept} />
