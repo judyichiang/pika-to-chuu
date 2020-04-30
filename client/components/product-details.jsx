@@ -37,7 +37,7 @@ export default class ProductDetails extends React.Component {
     if (this.state.showModal === true) {
       return (
         <div className="disclaimer container-fluid">
-          <div className="disclaimer-message">
+          <div className="modal-dialog modal-dialog-centered">
 
             {/* -- Modal content-- */}
             <div className="modal-content">
