@@ -36,15 +36,15 @@ export default class ProductDetails extends React.Component {
 
     if (this.state.showModal === true) {
       return (
-        <div className="modal" tabIndex="-1" role="dialogue">
-          <div className="modal-dialog" role="document">
+        <div className="disclaimer container-fluid">
+          <div className="disclaimer-message">
             <div className="modal-content">
               <div className="modal-header">
                 <h3 className="modal-title">Item Added</h3>
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-primary">Back to Catalog</button>
-                <button type="button" className="btn btn-secondary">Go to Cart</button>
+                <button type="button" className="btn btn-primary" onClick={() => this.props.setView('catalog', {})}>Back to Catalog</button>
+                <button type="button" className="btn btn-secondary" onClick={() => this.props.setView('cart', {})}>Go to Cart</button>
               </div>
             </div>
           </div>
