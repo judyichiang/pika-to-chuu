@@ -37,18 +37,23 @@ export default class ProductDetails extends React.Component {
     if (this.state.showModal === true) {
       return (
         <div className="disclaimer container-fluid">
-          <div className="disclaimer-message">
+          <div className="modal-dialog modal-dialog-centered">
+
+            {/* -- Modal content-- */}
             <div className="modal-content">
-              <div className="modal-header">
+              <div className="modal-header d-flex justify-content-center">
                 <h3 className="modal-title">Item Added</h3>
+
               </div>
-              <div className="modal-footer">
+              <div className="modal-footer d-flex justify-content-center">
                 <button type="button" className="btn btn-primary" onClick={() => this.props.setView('catalog', {})}>Back to Catalog</button>
                 <button type="button" className="btn btn-secondary" onClick={() => this.props.setView('cart', {})}>Go to Cart</button>
               </div>
             </div>
+
           </div>
         </div>
+
       );
     }
 
