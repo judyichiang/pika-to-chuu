@@ -39,7 +39,7 @@ export default class ProductDetails extends React.Component {
         <>
           <div className="disclaimer container-fluid">
 
-            <div className="modal-dialog modal-dialog-centered modal-background">
+            <div className="modal-dialog modal-dialog-centered">
 
               {/* -- Modal content-- */}
               <div className="modal-content">
