@@ -56,7 +56,7 @@ export default class ProductDetails extends React.Component {
             </div>
           </div>
 
-          <div className="container p-3">
+          {/* <div className="container p-3">
             <div className="pointer" onClick={() => this.props.setView('catalog', {})}>
               &lt; Back to Catalog
             </div>
@@ -68,15 +68,14 @@ export default class ProductDetails extends React.Component {
                 <h3 className="mb-3">{this.state.product.name}</h3>
                 <p className="mb-3">${(this.state.product.price / Math.pow(10, 2)).toFixed(2)}</p>
                 <p>{this.state.product.shortDescription}</p>
-                {/* <p><button className="btn btn-primary pl-3 pr-3 pt-2 pb-2" onClick={() => this.props.addToCart(this.state.product)} >Add to Cart</button></p> */}
-                <p><button className="btn btn-primary pl-3 pr-3 pt-2 pb-2" onClick={this.modalScreen} >Add to Cart</button></p>
+                <p><button className="btn btn-primary pl-3 pr-3 pt-2 pb-2" onClick={this.modalScreen} disabled >Add to Cart</button></p>
               </div>
             </div>
             <div className="row"></div>
             <div className="pl-4 pr-4 mt-3 col-12">
               {this.state.product.longDescription}
             </div>
-          </div>
+          </div> */}
 
         </>
 
