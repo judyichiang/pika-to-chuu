@@ -25,7 +25,7 @@ img {
   font-size: x-small;
 }
 
-.card-short{
+.card-short {
   font-size: small;
 }
 
@@ -40,6 +40,7 @@ img {
   height: 100vh;
   background-color: rgba(128, 128, 128, 0.7);
 }
+
 .disclaimer .disclaimer-message {
   display: flex;
   position: relative;
@@ -52,8 +53,8 @@ img {
   color: black;
 }
 
-.modal-content{
-  background-color: rgb(233,202,61) ;
+.modal-content {
+  background-color: rgb(233, 202, 61);
 }
 
 .disclaimer-message .contents {
@@ -61,18 +62,19 @@ img {
   font-size: 1.5rem;
   user-select: none;
 }
+
 .disclaimer-message .check-text {
   color: blue;
 }
 
-.disclaimer-message button.exit-modal{
+.disclaimer-message button.exit-modal {
   width: 50%;
   margin-top: 8px;
 }
 
 @media only screen and (max-width: 1300px) {
   .pokemon {
-  font-size: xx-small;
+    font-size: xx-small;
   }
   .disclaimer-message .contents {
     font-size: 1.25rem;
@@ -85,7 +87,7 @@ img {
 
 @media only screen and (max-width: 900px) {
   .pokemon {
-  font-size: xx-small;
+    font-size: xx-small;
   }
   .disclaimer-message .contents {
     font-size: 1.15rem;
@@ -97,8 +99,8 @@ img {
 }
 
 @media only screen and (max-width: 767.95px) {
-    .pokemon {
-  font-size: xx-small;
+  .pokemon {
+    font-size: xx-small;
   }
   .disclaimer .disclaimer-message {
     height: 60%;
@@ -117,8 +119,8 @@ img {
 }
 
 @media only screen and (max-height: 420px) {
-    .pokemon {
-  font-size: xx-small;
+  .pokemon {
+    font-size: xx-small;
   }
   .disclaimer .disclaimer-message {
     height: 80%;
@@ -136,8 +138,8 @@ img {
 }
 
 @media only screen and (max-height: 360px) {
-    .pokemon {
-  font-size: xx-small;
+  .pokemon {
+    font-size: xx-small;
   }
   .disclaimer .disclaimer-message {
     height: 80%;
@@ -152,17 +154,15 @@ img {
     font-size: 1.10rem;
     margin-bottom: 0;
     width: 20%;
-
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  .cart-sum{
+  .cart-sum {
     display: none!important;
   }
-  .sizing{
+  .sizing {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
 }
