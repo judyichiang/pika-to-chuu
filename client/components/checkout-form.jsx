@@ -95,7 +95,7 @@ export default class CheckoutForm extends React.Component {
               <div className="form-group">
                 <label className="my-2">
                   <p>Shipping Address</p></label>
-                <textarea className="form-control" id="shippingAddress" cols="30" rows="10" value={this.state.shippingAddress} onChange={this.handleAddress}></textarea>
+                <textarea className="form-control" id="shippingAddress" cols="30" rows="4" value={this.state.shippingAddress} onChange={this.handleAddress}></textarea>
 
               </div>
 
