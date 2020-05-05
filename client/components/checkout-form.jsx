@@ -81,21 +81,21 @@ export default class CheckoutForm extends React.Component {
               <div className="form-group">
                 <label className="my-2">
                   <p>Name on Credit Card</p>
-                  <input type="text" className="form-control" value={this.state.name} onChange={this.handleName} />
+                  <input type="text" placeholder="Full Name" className="form-control" value={this.state.name} onChange={this.handleName} />
                 </label>
               </div>
               {/* ------------credit card-------------- */}
               <div className="form-group">
                 <label className="my-2">
                   <p>Credit Card</p>
-                  <input type="text" className="form-control" name="creditCard" value={this.state.creditCard} onChange={this.handleCreditCard} />
+                  <input type="text" placeholder="xxxx xxxx xxxx xxxx" className="form-control" name="creditCard" value={this.state.creditCard} onChange={this.handleCreditCard} />
                 </label>
               </div>
               {/* ------------address-------------- */}
               <div className="form-group">
                 <label className="my-2">
                   <p>Shipping Address</p></label>
-                <textarea className="form-control" id="shippingAddress" cols="30" rows="4" value={this.state.shippingAddress} onChange={this.handleAddress}></textarea>
+                <textarea className="form-control" id="shippingAddress" placeholder="Street, City, State Zip" cols="30" rows="4" value={this.state.shippingAddress} onChange={this.handleAddress}></textarea>
 
               </div>
 
