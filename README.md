@@ -2,10 +2,6 @@
 'The many faces of Pikachu! We got Chuu~' </br>
 A full stack Node.js and React shopping cart app.
 
-## Live Demo
-
-Try the application live on [my portfolio](https://shopping.judyichiang.com/)
-
 ## Technologies Used
 - React.js
 - Node.js
